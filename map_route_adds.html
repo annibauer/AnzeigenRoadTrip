@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dafe94317b3faf1979b41ed6e74775e5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_dafe94317b3faf1979b41ed6e74775e5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dafe94317b3faf1979b41ed6e74775e5 = L.map(
+                "map_dafe94317b3faf1979b41ed6e74775e5",
+                {
+                    center: [52.0, 15.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3d9093eec5d3eae2598e5c20b9439d20 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_4256530bd672d3731998546e2815fada = L.polyline(
+                [[52.5170088, 13.3888019], [52.5136069, 13.3359773]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_5b519a9de306be57474a388b3605d755 = L.polyline(
+                [[52.5136069, 13.3359773], [52.3416861, 13.1398244]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_7f3dbbcd9b8b718c4058dcc8675acd03 = L.polyline(
+                [[52.3416861, 13.1398244], [52.0309856, 12.6070048]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_f96497895dfbcacf8830cc50f5e3a5fd = L.polyline(
+                [[52.0309856, 12.6070048], [51.573429, 12.1904425]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_25329f944394b797c1ef76fa976a6dc9 = L.polyline(
+                [[51.573429, 12.1904425], [51.0846228, 11.9554662]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_b3b2cb52bc5c34ae4598434c801ba79a = L.polyline(
+                [[51.0846228, 11.9554662], [50.6966424, 11.8407833]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_25340da3647db1702493ffc0909a4bd5 = L.polyline(
+                [[50.6966424, 11.8407833], [50.3821626, 11.7831492]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_3fdcf2dd872aa0bf8b261615af789c0e = L.polyline(
+                [[50.3821626, 11.7831492], [50.108639, 11.7063767]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_f055caa09e9bf4e7db44eb6bc1eaeecb = L.polyline(
+                [[50.108639, 11.7063767], [49.8733842, 11.5343886]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_940075f2ed4c9d3ed666c345367b79a7 = L.polyline(
+                [[49.8733842, 11.5343886], [49.5968267, 11.3532671]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_4f7650b3dbefe764f8eaa0c59581c2eb = L.polyline(
+                [[49.5968267, 11.3532671], [49.3100789, 10.9068523]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_2ddf4b891d2fb70d5e76e5bb96fc94cf = L.polyline(
+                [[49.3100789, 10.9068523], [49.250951, 10.4034847]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_b0c277f83d255080a698ae4a3d7fcb5b = L.polyline(
+                [[49.250951, 10.4034847], [49.1745687, 9.8680437]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_102d66d4fa75de7b57f6d59bae90d93d = L.polyline(
+                [[49.1745687, 9.8680437], [49.170606, 9.3784301]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_135683c6ac27b68c4bffc1d376162c05 = L.polyline(
+                [[49.170606, 9.3784301], [49.2220395, 8.9735051]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_77f980fae10ac58903c713ef78a25ef3 = L.polyline(
+                [[49.2220395, 8.9735051], [49.2705199, 8.613231]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var poly_line_b6cc7d468e8f61efe89704617179d0b2 = L.polyline(
+                [[49.2705199, 8.613231], [49.0072141, 8.4269638]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_046fec85aa116bf75dbac4aa4ed1c029 = L.marker(
+                [52.5192672, 13.195439],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_6367071f959e1827c909c319e4c7b1fc = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_953f2b3823f0a42fd8e1512827581606 = $(`<div id="html_953f2b3823f0a42fd8e1512827581606" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/8c/8cff4ee5-8b5f-4327-ac94-11ece25a621c?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-m3-e36-getriebe-6-gang-3-2l-s50-schaltgetriebe/2461895042-223-3433 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW M3 E36 Getriebe 6-Gang 3,2l S50 Schaltgetriebe</div>             <div style="color: #666; margin-bottom: 12px;">13595 Spandau</div>             <div style="font-weight: bold; color: #333;">3.550€</div>             <div style="color: #666; margin-bottom: 12px;">  01.02.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_6367071f959e1827c909c319e4c7b1fc.setContent(html_953f2b3823f0a42fd8e1512827581606);
+            
+        
+
+        marker_046fec85aa116bf75dbac4aa4ed1c029.bindPopup(popup_6367071f959e1827c909c319e4c7b1fc)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_6cf1d247392098b9e8a22825d99eab5a = L.marker(
+                [49.1539607, 8.2911891],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_3d1163dd2ace1eef37203c9b9ab13608 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_84f3ead27648acb35c2edfdeb86f82d2 = $(`<div id="html_84f3ead27648acb35c2edfdeb86f82d2" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/ac/ac9a48f2-907b-4e34-9422-9501c876557e?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-320i/2667593413-216-5231 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 320I</div>             <div style="color: #666; margin-bottom: 12px;">76761 Rülzheim</div>             <div style="font-weight: bold; color: #333;">3.000€VB</div>             <div style="color: #666; margin-bottom: 12px;">  31.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_3d1163dd2ace1eef37203c9b9ab13608.setContent(html_84f3ead27648acb35c2edfdeb86f82d2);
+            
+        
+
+        marker_6cf1d247392098b9e8a22825d99eab5a.bindPopup(popup_3d1163dd2ace1eef37203c9b9ab13608)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_2a25a2c7296eb2cd1dcd22e186bc3a78 = L.marker(
+                [49.1434266, 9.1240565],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_60919a4ba55cb57f35a5277c87ff9946 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_3488991130518474561ab4a35f302a85 = $(`<div id="html_3488991130518474561ab4a35f302a85" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/98/98a3324e-1ba8-4ce1-888a-6b4861d813cc?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-323ti-custome-projekt-aufgabe-komplett/2666793927-223-9230 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 323TI CUSTOME PROJEKT AUFGABE KOMPLETT</div>             <div style="color: #666; margin-bottom: 12px;">74211 Leingarten</div>             <div style="font-weight: bold; color: #333;">3.500€</div>             <div style="color: #666; margin-bottom: 12px;">  30.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_60919a4ba55cb57f35a5277c87ff9946.setContent(html_3488991130518474561ab4a35f302a85);
+            
+        
+
+        marker_2a25a2c7296eb2cd1dcd22e186bc3a78.bindPopup(popup_60919a4ba55cb57f35a5277c87ff9946)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_eddd6b277b1e0cf84895bc6759c3706e = L.marker(
+                [52.4009309, 13.0591397],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_ca8d9f805ee32ae43d729a4dfb077cfa = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_8ea176a046c64dcda5135a4ccc355912 = $(`<div id="html_8ea176a046c64dcda5135a4ccc355912" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/69/69c8cb2d-84c3-4800-b7af-de256fdd5379?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-cabrio-318i-schalter-tausch-moeglich/2666751122-216-7962 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 Cabrio 318i Schalter Tausch möglich</div>             <div style="color: #666; margin-bottom: 12px;">14467 Potsdam</div>             <div style="font-weight: bold; color: #333;">3.950€VB</div>             <div style="color: #666; margin-bottom: 12px;">  30.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_ca8d9f805ee32ae43d729a4dfb077cfa.setContent(html_8ea176a046c64dcda5135a4ccc355912);
+            
+        
+
+        marker_eddd6b277b1e0cf84895bc6759c3706e.bindPopup(popup_ca8d9f805ee32ae43d729a4dfb077cfa)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_e25bd8763f5d3b9847705e359391cdc5 = L.marker(
+                [52.4109309, 13.0691397],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_2933c8fd3655d7712082fd5e6b4405cb = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_27f06836728a56fb804ebd6dbbe9ec8c = $(`<div id="html_27f06836728a56fb804ebd6dbbe9ec8c" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/67/6711ddd5-19b0-4771-ab24-64c3417a7053?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-320i-m50-5-gang-leder-2te-hand-single-vanos/2663249600-216-7963 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 320i,M50,5-Gang,Leder,2te Hand,Single Vanos</div>             <div style="color: #666; margin-bottom: 12px;">14469 Potsdam</div>             <div style="font-weight: bold; color: #333;">3.449€VB</div>             <div style="color: #666; margin-bottom: 12px;">  26.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_2933c8fd3655d7712082fd5e6b4405cb.setContent(html_27f06836728a56fb804ebd6dbbe9ec8c);
+            
+        
+
+        marker_e25bd8763f5d3b9847705e359391cdc5.bindPopup(popup_2933c8fd3655d7712082fd5e6b4405cb)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_392f188eb13aee8de7d671b211800913 = L.marker(
+                [50.1008448, 11.4479149],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_d84fc8b2e2bdd5428c7986a74a04759f = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_c2fe37ef47e0d31b6a31a93b54371f94 = $(`<div id="html_c2fe37ef47e0d31b6a31a93b54371f94" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/6f/6f9d3e71-67dd-4436-a05e-b20565596573?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-318i-touring-tausch/2662928541-216-7551 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Bmw E36 318i touring/Tausch</div>             <div style="color: #666; margin-bottom: 12px;">95326 Kulmbach</div>             <div style="font-weight: bold; color: #333;">3.499€VB</div>             <div style="color: #666; margin-bottom: 12px;">  26.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_d84fc8b2e2bdd5428c7986a74a04759f.setContent(html_c2fe37ef47e0d31b6a31a93b54371f94);
+            
+        
+
+        marker_392f188eb13aee8de7d671b211800913.bindPopup(popup_d84fc8b2e2bdd5428c7986a74a04759f)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_f5d36575de1673a810cd03011d7e3173 = L.marker(
+                [49.4221, 8.8396],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_e4fa7b08e93053eecb3ee6eaccf343af = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_477e7f4a397d1a72587882fa904be6cb = $(`<div id="html_477e7f4a397d1a72587882fa904be6cb" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/74/74101894-e1f1-4cae-a677-afbe77ae22a3?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-m3-z3m-3-2-us-s52b32-der-motor-zu-verkaufe-engine-swap/2659803772-223-9167 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 M3 Z3M 3.2 US S52B32 Der Motor zu verkaufe engine swap</div>             <div style="color: #666; margin-bottom: 12px;">69239 Neckarsteinach</div>             <div style="font-weight: bold; color: #333;">4.000€</div>             <div style="color: #666; margin-bottom: 12px;">  22.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_e4fa7b08e93053eecb3ee6eaccf343af.setContent(html_477e7f4a397d1a72587882fa904be6cb);
+            
+        
+
+        marker_f5d36575de1673a810cd03011d7e3173.bindPopup(popup_e4fa7b08e93053eecb3ee6eaccf343af)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_a60bfd4e01294e3620045254a1d3e502 = L.marker(
+                [52.515747, 13.3096834],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_9474719f8711958b740511d99d6f0b71 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_743a321186949fa4d636ae8bf0a2fb1b = $(`<div id="html_743a321186949fa4d636ae8bf0a2fb1b" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a7/a7f7d8a7-cd3d-45dd-b73b-6e3ff6ef4ce9?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/e36-driftauto-ready-to-race/2653310138-216-3342 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">E36 driftauto ready to race</div>             <div style="color: #666; margin-bottom: 12px;">10625 Charlottenburg</div>             <div style="font-weight: bold; color: #333;">3.990€VB</div>             <div style="color: #666; margin-bottom: 12px;">  14.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_9474719f8711958b740511d99d6f0b71.setContent(html_743a321186949fa4d636ae8bf0a2fb1b);
+            
+        
+
+        marker_a60bfd4e01294e3620045254a1d3e502.bindPopup(popup_9474719f8711958b740511d99d6f0b71)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_499bd2e9d41b8ef5b637460fb57ed520 = L.marker(
+                [50.99860385, 11.9199528923],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_d8f1ed6f592d6137f20469f5d5a3cbb6 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_381fbb743d71c281280e839e4cd3b98e = $(`<div id="html_381fbb743d71c281280e839e4cd3b98e" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/39/39f1c9fc-cb7a-4417-bb8c-87ed2fe955b3?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-318i-limousine-e36/2651740782-216-24496 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW 318i Limousine E36</div>             <div style="color: #666; margin-bottom: 12px;">07613 Heideland</div>             <div style="font-weight: bold; color: #333;">3.900€</div>             <div style="color: #666; margin-bottom: 12px;">  13.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_d8f1ed6f592d6137f20469f5d5a3cbb6.setContent(html_381fbb743d71c281280e839e4cd3b98e);
+            
+        
+
+        marker_499bd2e9d41b8ef5b637460fb57ed520.bindPopup(popup_d8f1ed6f592d6137f20469f5d5a3cbb6)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_500119c8ee62e3ffaa0b5d8dc4ae14e4 = L.marker(
+                [49.4489507, 11.077423],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_91d608b1c9bdea1d2f8959975d2efe97 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_00d4bb736fa407152c7139394f9518e9 = $(`<div id="html_00d4bb736fa407152c7139394f9518e9" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/dc/dc79c169-0f73-4eec-a10d-e998bcfca34e?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-320i-cabrio/2649253520-216-6820 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 320i Cabrio</div>             <div style="color: #666; margin-bottom: 12px;">90402 Mitte</div>             <div style="font-weight: bold; color: #333;">3.900€VB</div>             <div style="color: #666; margin-bottom: 12px;">  10.01.2024</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_91d608b1c9bdea1d2f8959975d2efe97.setContent(html_00d4bb736fa407152c7139394f9518e9);
+            
+        
+
+        marker_500119c8ee62e3ffaa0b5d8dc4ae14e4.bindPopup(popup_91d608b1c9bdea1d2f8959975d2efe97)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_a657163bae477ab6b4d734598bc73782 = L.marker(
+                [52.4109309, 13.0691397],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_99e10fc3b155f7fa63d72ee017e72bc8 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_430e6b957809bc87d6bcc980dae251ee = $(`<div id="html_430e6b957809bc87d6bcc980dae251ee" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/af/afbce1c9-7a97-49c5-b0b6-bea804139347?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-cabrio-318i-schalter-tausch-moeglich/2636718260-216-7962 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 Cabrio 318i Schalter Tausch möglich</div>             <div style="color: #666; margin-bottom: 12px;">14467 Potsdam</div>             <div style="font-weight: bold; color: #333;">3.900€VB</div>             <div style="color: #666; margin-bottom: 12px;">  26.12.2023</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_99e10fc3b155f7fa63d72ee017e72bc8.setContent(html_430e6b957809bc87d6bcc980dae251ee);
+            
+        
+
+        marker_a657163bae477ab6b4d734598bc73782.bindPopup(popup_99e10fc3b155f7fa63d72ee017e72bc8)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_707f0a933cf0cfe0ea324d3896b114d6 = L.marker(
+                [52.4572569, 13.3222865],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_fc3e1655fb91f8b6f2b751c0e66176f6 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_5d4e72a427fdb77ebe861e41968174c5 = $(`<div id="html_5d4e72a427fdb77ebe861e41968174c5" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/e7/e7b384f6-90b5-402d-a6fe-dc70b8da877b?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-316i-e-36-limousine-ssdach-scheckheft-tuevneu/2636412551-216-3428 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW 316i E 36 Limousine , SSDach,  Scheckheft Tüvneu</div>             <div style="color: #666; margin-bottom: 12px;">12279 Steglitz</div>             <div style="font-weight: bold; color: #333;">3.350€</div>             <div style="color: #666; margin-bottom: 12px;">  25.12.2023</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_fc3e1655fb91f8b6f2b751c0e66176f6.setContent(html_5d4e72a427fdb77ebe861e41968174c5);
+            
+        
+
+        marker_707f0a933cf0cfe0ea324d3896b114d6.bindPopup(popup_fc3e1655fb91f8b6f2b751c0e66176f6)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_34f44f0f52fc37a2b4442b3fd32322c9 = L.marker(
+                [52.6047631, 13.2952872],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_854bfbc2afbdac1b5d346c680ab512dc = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_fb51957dea9f6bcebfe97fc69886aa6a = $(`<div id="html_fb51957dea9f6bcebfe97fc69886aa6a" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/bc/bc8607fa-283a-4916-8ed9-3390ae8eeb7f?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-323-ti-compact-e36/2611732089-216-3455 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW 323 ti Compact e36</div>             <div style="color: #666; margin-bottom: 12px;">13467 Reinickendorf</div>             <div style="font-weight: bold; color: #333;">3.300€</div>             <div style="color: #666; margin-bottom: 12px;">  24.11.2023</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_854bfbc2afbdac1b5d346c680ab512dc.setContent(html_fb51957dea9f6bcebfe97fc69886aa6a);
+            
+        
+
+        marker_34f44f0f52fc37a2b4442b3fd32322c9.bindPopup(popup_854bfbc2afbdac1b5d346c680ab512dc)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_fe54c64aa62d7a7d1c72bc4b99d47d3a = L.marker(
+                [52.4871152, 13.3203298],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_40b42ad7efafe904f94f390fdf4f4686 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_6311d1ca4cda2b20e0cdf8ea2746bd16 = $(`<div id="html_6311d1ca4cda2b20e0cdf8ea2746bd16" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/74/74e4a269-fe29-4ecc-8a8d-1c7b0a4355c9?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-320i-mit-maengeln-polnische-zulassung-/2544243913-216-3542 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 320i MIT MÄNGELN (Polnische Zulassung)</div>             <div style="color: #666; margin-bottom: 12px;">14197 Wilmersdorf</div>             <div style="font-weight: bold; color: #333;">3.450€</div>             <div style="color: #666; margin-bottom: 12px;">  13.09.2023</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_40b42ad7efafe904f94f390fdf4f4686.setContent(html_6311d1ca4cda2b20e0cdf8ea2746bd16);
+            
+        
+
+        marker_fe54c64aa62d7a7d1c72bc4b99d47d3a.bindPopup(popup_40b42ad7efafe904f94f390fdf4f4686)
+        ;
+
+        
+    
+    
+            tile_layer_3d9093eec5d3eae2598e5c20b9439d20.addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+            var marker_646ad7395c216217141e865c77f8b4a9 = L.marker(
+                [50.0943381, 11.5848641],
+                {}
+            ).addTo(map_dafe94317b3faf1979b41ed6e74775e5);
+        
+    
+        var popup_583f80f23257ec4fda06147822d737c7 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_c0bc13eb8a6cdbd757c3196615fafeee = $(`<div id="html_c0bc13eb8a6cdbd757c3196615fafeee" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/56/567b48ca-16d8-4d7a-8363-8e67562587df?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <a href=https://www.kleinanzeigen.de/s-anzeige/carbon-dach-cover-fuer-bmw-e36-m3-inkl-montage-lackierung/1838189074-223-19307 target="_blank" style="text-decoration: none; color: inherit;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Carbon Dach Cover für BMW E36 / M3 inkl. Montage & Lackierung</div>             <div style="color: #666; margin-bottom: 12px;">95339 Neuenmarkt</div>             <div style="font-weight: bold; color: #333;">3.500€</div>             <div style="color: #666; margin-bottom: 12px;">  05.08.2021</div>             </a>         </div>         </div>         </div>`)[0];
+                popup_583f80f23257ec4fda06147822d737c7.setContent(html_c0bc13eb8a6cdbd757c3196615fafeee);
+            
+        
+
+        marker_646ad7395c216217141e865c77f8b4a9.bindPopup(popup_583f80f23257ec4fda06147822d737c7)
+        ;
+
+        
+    
+</script>
+</html>

@@ -1,0 +1,22 @@
+2024-02-04 15:08:36,687 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 15:09:38,800 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 15:10:07,930 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=77787+Nordrach&format=json&limit=1
+2024-02-04 15:10:09,002 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=77787+Nordrach&format=json&limit=1
+2024-02-04 15:18:19,792 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 15:24:31,497 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 16:00:26,968 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 16:01:14,714 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=34379+Calden&format=json&limit=1
+2024-02-04 16:01:15,721 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd79222e760>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)')': /search?q=34379+Calden&format=json&limit=1
+2024-02-04 23:13:44,423 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 23:20:18,973 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 23:22:33,019 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-04 23:35:57,124 - INFO - Dash is running on http://127.0.0.1:8050/
+
