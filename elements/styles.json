@@ -1,0 +1,72 @@
+{
+    "buttons_add_remove": {
+        "display": "flex",
+        "justify-content": "center",
+        "align-items": "center",
+        "backgroundColor": "rgb(0,0,0,0)",
+        "color": "black"
+    },
+    "buttons_add_remove_group": {
+        "display": "contents",
+        "height": "30px"
+    },
+    "style_row_search": {
+        "fontWeight": "bold",
+        "textAlign": "center"
+    },
+    "input_add_remove": {
+        "margin-top": "10px",
+        "margin-bottom": "10px",
+        "height": "30px"
+    },
+    "input_prices": {
+        "margin-top": "10px",
+        "margin-bottom": "10px",
+        "height": "30px",
+        "width": "100%"
+    },
+    "title_search": {
+        "text-align": "left",
+        "font-size":"70%"
+    },
+    "search_card": {
+        "padding": "20px"
+    },
+    "search_card_contents": {
+        "margin":"20px"
+    },
+    "button_main": {
+        "margin":"10px 0px 10px 0px"
+    },
+    "button_load": {
+        "margin":"0px"
+    },
+    "map": {
+        "padding": "20px"
+    },
+    "overview_cards": {
+        "padding": "20px"
+    },
+    "image_anzeigen_cards": {
+        "width": "50%"
+    },
+    "article_card": {
+        "margin": "20px"
+    },
+    "seach_inputs_overall": {
+        "margin": "20px",
+        "width": "100%"
+    },
+    "icon_size_add_remove": {
+        "font-size": "20px"
+    },
+    "main_layout_rows" :{
+        "height":"100%",
+        "margin":"10px"
+    },
+    "load":{
+        "padding":"20px"
+    },
+    "load_card":{
+    }
+}

@@ -15,6 +15,8 @@ import dash_bootstrap_components as dbc
 import os
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
+from functions.anzeigen import *
+from elements.route_anzeigen_overview import *
 
 
 def location_formatting_request(geolocator, locations_array):
@@ -42,7 +44,7 @@ def format_route_string(geolocator, route_array):
     return route_string
     
 
-def generate_route_coordinates(geolocator, route_array):
+def generate_route_coordinates(geolocator, route_array, json_file_path_route):
     route_string = format_route_string(geolocator, route_array)
     
     response = requests.get(url="http://router.project-osrm.org/route/v1/driving/{route_string}?alternatives=false&overview=simplified&annotations=nodes".format(route_string=route_string))
@@ -53,45 +55,27 @@ def generate_route_coordinates(geolocator, route_array):
 
     api = osm.OsmApi()
     location_points = []
-    # location_point_names = []
-    # postcodes_list = []
-    # country_list = []
     latitude_list = []
     longitude_list = []
     for node in location_nodes:
         node = api.NodeGet(node)
-        # location = geolocator.reverse("{lat},{lon}".format(lat=node['lat'], lon=node['lon']))
-        # loc_address = location.raw['address']
-        # try:
-        #     postcode = loc_address['postcode']
-        # except:
-        #     postcode = loc_address['city']
-        # country = loc_address['country']
-        # postcodes_list.append(postcode)
-        # country_list.append(country)
         latitude_list.append(node['lat'])
         longitude_list.append(node['lon'])
-        
-        # location_point_names.append([postcode,country])
         location_points.append([node['lat'],node['lon']])
     
-    #route_df = pd.DataFrame(columns=['postcode','country','latitude','longitude'])
     route_df = pd.DataFrame(columns=['latitude','longitude'])
-    # route_df['postcode'] = postcodes_list
-    # route_df['country'] = country_list
     route_df['latitude'] = latitude_list
     route_df['longitude'] = longitude_list
             
-    json_file_path = './data/route.json'
-    if os.path.exists(json_file_path):
-        os.remove(json_file_path)
+
+    if os.path.exists(json_file_path_route):
+        os.remove(json_file_path_route)
     
-    route_df.to_json(json_file_path)  
-    # return location_point_names, location_points
+    route_df.to_json(json_file_path_route)  
     return location_points
     
 def generate_map_route(location_points, html_file_name):
-    m = folium.Map(location=[52, 15], tiles="OpenStreetMap", zoom_start=5)
+    m = folium.Map(location=[51, 11], tiles="OpenStreetMap", zoom_start=6)
     
     if(type(location_points)==list):
         item_past = location_points[0]
@@ -172,3 +156,54 @@ def check_if_anzeige_on_route(route_coordinates_list, anzeige_cor, radius_around
 
 
     return ANZEIGE_NEAR_ROUTE
+
+def filter_on_route_anzeigen(location_points,search_radius, m, html_file_name, json_file_anzeigen, json_file_general):
+    if os.path.exists(json_file_anzeigen):
+        os.remove(json_file_anzeigen)
+        
+    articles_df = pd.read_json(json_file_general)
+    
+    for index, article in articles_df.iterrows():
+        article_location = {
+            'desc':article['location_description'],
+            'latitude': article['latitude'],
+            'longitude': article['longitude']
+        }
+
+        if(check_if_anzeige_on_route(location_points, [article_location['latitude'], article_location['longitude']], search_radius)):
+            add_article(json_file_anzeigen, article)
+            map_div, m = add_location_anzeigen_markers_to_map(article, article_location, m ,html_file_name)
+    
+    overview_anzeigen_div = generate_anzeigen_card_div(json_file_anzeigen)  
+    return overview_anzeigen_div, map_div, m 
+
+def display_filtered_anzeigen_map(m, html_file_name, json_file):
+    articles_df = pd.read_json(json_file)
+    for index, article in articles_df.iterrows():
+        article_location = {
+            'desc':article['location_description'],
+            'latitude': article['latitude'],
+            'longitude': article['longitude']
+        }
+
+        map_div, m = add_location_anzeigen_markers_to_map(article, article_location, m ,html_file_name)
+    overview_anzeigen_div = generate_anzeigen_card_div(json_file)
+    return overview_anzeigen_div, map_div, m 
+            
+def format_route_points_string(start_loc_input, waypoints, end_loc_input):
+    # complete route
+    complete_route = []
+    complete_route.append(start_loc_input)
+    complete_route.extend(waypoints)
+    complete_route.append(end_loc_input)
+    route_text = ''
+    for stop in complete_route:
+        route_text = route_text +  "-> " + str(stop)
+        
+    return complete_route, route_text
+            
+            
+def create_empty_map(settings):
+    m = folium.Map(location=[52, 11], tiles="OpenStreetMap", zoom_start=5)
+    m.save(settings["map_folder"] + settings["empty_map"])
+    return m

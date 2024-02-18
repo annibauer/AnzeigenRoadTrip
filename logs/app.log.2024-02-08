@@ -1,0 +1,8 @@
+2024-02-08 11:48:58,581 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-08 11:57:53,111 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-08 12:10:08,898 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd7927ba220>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)')': /search?q=Berlin&format=json&limit=1
+2024-02-08 12:10:10,904 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd7927a6c40>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)')': /search?q=Berlin&format=json&limit=1
+2024-02-08 12:26:20,347 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd7927baf10>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)')': /search?q=Berlin&format=json&limit=1
+2024-02-08 12:26:22,356 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fd7927baa00>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)')': /search?q=Berlin&format=json&limit=1

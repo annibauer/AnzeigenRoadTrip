@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2b8a47cc692efa7d014c5eab673af0ec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2b8a47cc692efa7d014c5eab673af0ec" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2b8a47cc692efa7d014c5eab673af0ec = L.map(
+                "map_2b8a47cc692efa7d014c5eab673af0ec",
+                {
+                    center: [51.0, 11.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_53381d7a5bd3840b36824e24c272203c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_1f5953f20954adf771edb2a4fff199fc = L.polyline(
+                [[52.5170088, 13.3888019], [52.513719, 13.3376759]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_0e00db075ef67bb8bf0aeb1e87affec6 = L.polyline(
+                [[52.513719, 13.3376759], [52.3671277, 13.1478489]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_e75bc37fe5a9125bf9490f6fd8f1e812 = L.polyline(
+                [[52.3671277, 13.1478489], [52.0495382, 12.6428587]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_286ebd0edb3c8d1bd70998d09197a109 = L.polyline(
+                [[52.0495382, 12.6428587], [51.6328744, 12.195712]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_00c3b183de6e8101aaf71d3b99cb2c08 = L.polyline(
+                [[51.6328744, 12.195712], [51.1864683, 12.009568]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_22533b5cf78d9c3b9f087f9ad0f87c05 = L.polyline(
+                [[51.1864683, 12.009568], [50.7592391, 11.8736725]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_379410dbc57f1aac569ae048d676a330 = L.polyline(
+                [[50.7592391, 11.8736725], [50.416494, 11.7829796]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_74d6e6e8bdff125855774b07c4f65508 = L.polyline(
+                [[50.416494, 11.7829796], [50.1754628, 11.7500082]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_c78acbb511dc09a2a55333a6ab5f1abf = L.polyline(
+                [[50.1754628, 11.7500082], [49.9353377, 11.6036421]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_c06b52c1eb254468a6ec2c10d9f04218 = L.polyline(
+                [[49.9353377, 11.6036421], [49.6892945, 11.4660808]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_b057728fc427f3a8dcd4f071c58fbd77 = L.polyline(
+                [[49.6892945, 11.4660808], [49.3538159, 11.1061194]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_c2bab156bd9cac492b07826c633834bf = L.polyline(
+                [[49.3538159, 11.1061194], [49.2504908, 10.6160382]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_2332ec4fbc55be3195f4ebaa40c95d04 = L.polyline(
+                [[49.2504908, 10.6160382], [49.2111534, 10.1715063]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_86887b5c946ad9ce9c9a0b4b091dd661 = L.polyline(
+                [[49.2111534, 10.1715063], [49.2175731, 9.5687755]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_4392c3ab7d9415dc5d2511a490e6ac34 = L.polyline(
+                [[49.2175731, 9.5687755], [49.1279409, 9.3005949]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var poly_line_cca34ae19e338bebb5df0c2c6d6a395d = L.polyline(
+                [[49.1279409, 9.3005949], [48.9256814, 9.1640837]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_9b88ee4f729d18947e5595c936dce454 = L.marker(
+                [48.9871509, 9.3894881931],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_6ebc2154b35431acc451799428ed338b = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_05a9de4f433ed24bc1dfd14f35311230 = $(`<div id="html_05a9de4f433ed24bc1dfd14f35311230" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-kofferraum-abdeckung/2677432847-223-8366 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/eb/ebad877d-97c1-453f-a78c-6cd0d76f9cae?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E36 Kofferraum Abdeckung</div>             <div style="color: #666; margin-bottom: 12px;">71546 Aspach</div>             <div style="font-weight: bold; color: #333;">35€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:12</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_6ebc2154b35431acc451799428ed338b.setContent(html_05a9de4f433ed24bc1dfd14f35311230);
+            
+        
+
+        marker_9b88ee4f729d18947e5595c936dce454.bindPopup(popup_6ebc2154b35431acc451799428ed338b)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_498f6c9c9656e7025012c88655ad6222 = L.marker(
+                [52.5192672, 13.195439],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_a9d225ceca45b615af2e6ea6036297d4 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_18962f99dcdb5f7aae0b92b582afc1fb = $(`<div id="html_18962f99dcdb5f7aae0b92b582afc1fb" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-316i-e36-kardanwelle/2628544580-223-3433 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/43/431a1a31-9d82-4e83-84b8-b6f95938d0e6?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW 316i E36 Kardanwelle</div>             <div style="color: #666; margin-bottom: 12px;">13595 Spandau</div>             <div style="font-weight: bold; color: #333;">95€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:04</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_a9d225ceca45b615af2e6ea6036297d4.setContent(html_18962f99dcdb5f7aae0b92b582afc1fb);
+            
+        
+
+        marker_498f6c9c9656e7025012c88655ad6222.bindPopup(popup_a9d225ceca45b615af2e6ea6036297d4)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_c54d7b40c5bd400bfb294021aba77040 = L.marker(
+                [48.8749991, 9.0778484],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_a6cd43a7f106081ae72cd158f9acb508 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_d9ddf80265d8d63454715261cbb99fdb = $(`<div id="html_d9ddf80265d8d63454715261cbb99fdb" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e34-e36-e39-323i-325i-523i-525i-kurbelwelle-1121-1705847/2601889484-223-8864 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/ce/ce1e8075-817e-45a4-8a98-7bb9c017c380?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E34 E36 E39 323i 325i 523i 525i Kurbelwelle 1121-1705847</div>             <div style="color: #666; margin-bottom: 12px;">71701 Schwieberdingen</div>             <div style="font-weight: bold; color: #333;">120€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:03</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_a6cd43a7f106081ae72cd158f9acb508.setContent(html_d9ddf80265d8d63454715261cbb99fdb);
+            
+        
+
+        marker_c54d7b40c5bd400bfb294021aba77040.bindPopup(popup_a6cd43a7f106081ae72cd158f9acb508)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_85e29f68e0f29ee30fa051d73544b7b2 = L.marker(
+                [48.9321398, 8.9568316],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_1c168304325d209d2c359fe61b49fd62 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_5e82573bd51111acb5442a7619f2a951 = $(`<div id="html_5e82573bd51111acb5442a7619f2a951" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/drosselklappenstellmotor-bmw-e36-1427174/1314782065-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/7d/7d8cfdc7-6abe-4e45-abda-14628c50ec49?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Drosselklappenstellmotor BMW E36 : 1427174</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">39€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_1c168304325d209d2c359fe61b49fd62.setContent(html_5e82573bd51111acb5442a7619f2a951);
+            
+        
+
+        marker_85e29f68e0f29ee30fa051d73544b7b2.bindPopup(popup_1c168304325d209d2c359fe61b49fd62)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_78300eb3f5a9457002d9a57509e7e530 = L.marker(
+                [48.8123052, 9.1590308],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_36fcc42061a46640c3178b77abc170b6 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_ded7a51834e323b2ec09edd9337a9896 = $(`<div id="html_ded7a51834e323b2ec09edd9337a9896" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/1-18-bmw-e36-v8-umbau/2677414067-249-9309 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/4a/4a45f0dd-adac-453c-bacd-15f17b6b744c?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">1 18 BMW E36 V8 Umbau</div>             <div style="color: #666; margin-bottom: 12px;">70499 Feuerbach</div>             <div style="font-weight: bold; color: #333;">149€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:54</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_36fcc42061a46640c3178b77abc170b6.setContent(html_ded7a51834e323b2ec09edd9337a9896);
+            
+        
+
+        marker_78300eb3f5a9457002d9a57509e7e530.bindPopup(popup_36fcc42061a46640c3178b77abc170b6)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_ac0ecebebaee8343d4522bd446b0b42b = L.marker(
+                [52.2994511, 13.6244389],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_12a657d3efb77c0851cd24ab39296cfc = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_336ad56da57c56d5ce8585a2e6e6712d = $(`<div id="html_336ad56da57c56d5ce8585a2e6e6712d" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/gebrauchte-bmw-e36-teile/2677402754-223-9754 target="_blank" style="text-decoration: none; color: inherit;">         <img src= alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Gebrauchte BMW e36 Teile</div>             <div style="color: #666; margin-bottom: 12px;">15712 Königs Wusterhausen</div>             <div style="font-weight: bold; color: #333;">VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:43</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_12a657d3efb77c0851cd24ab39296cfc.setContent(html_336ad56da57c56d5ce8585a2e6e6712d);
+            
+        
+
+        marker_ac0ecebebaee8343d4522bd446b0b42b.bindPopup(popup_12a657d3efb77c0851cd24ab39296cfc)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_ac1290a1939a4cd87824558b39aa08ff = L.marker(
+                [52.4811497, 13.4353501],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_ba467b077697c2d6ba64d7558fb00af1 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_0169220a5d062bae346218b3e3a2fd26 = $(`<div id="html_0169220a5d062bae346218b3e3a2fd26" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-schaltknauf-neu-e36-e46-e39-e60-e38-e53-e83/2677382208-223-3394 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/00/009d0e07-1333-4fc9-830a-145eef6f467f?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Bmw Schaltknauf NEU e36 e46 e39 e60 e38 e53 e83</div>             <div style="color: #666; margin-bottom: 12px;">12059 Neukölln</div>             <div style="font-weight: bold; color: #333;">50€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:24</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_ba467b077697c2d6ba64d7558fb00af1.setContent(html_0169220a5d062bae346218b3e3a2fd26);
+            
+        
+
+        marker_ac1290a1939a4cd87824558b39aa08ff.bindPopup(popup_ba467b077697c2d6ba64d7558fb00af1)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_38ec164fde1f53951d71a0223c03a973 = L.marker(
+                [50.87187565, 11.8407896795],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_60722d76c576c54b58e4a042f60373d8 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_1140331799869fa545f712c2926e3ef4 = $(`<div id="html_1140331799869fa545f712c2926e3ef4" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-328i-e36-in-1-18-mit-ovp-tuning/2677367409-249-20603 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/ec/ec85fc59-a9ff-41cd-85ca-0114896071fe?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW 328i (E36 ) in 1 18 mit OVP / Tuning</div>             <div style="color: #666; margin-bottom: 12px;">07629 Hermsdorf</div>             <div style="font-weight: bold; color: #333;">VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:10</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_60722d76c576c54b58e4a042f60373d8.setContent(html_1140331799869fa545f712c2926e3ef4);
+            
+        
+
+        marker_38ec164fde1f53951d71a0223c03a973.bindPopup(popup_60722d76c576c54b58e4a042f60373d8)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_528dfbf99810dc051f970797d08d239c = L.marker(
+                [48.9274282, 9.0292153],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_d7c3667d3e7f17acc12915e126bad2a6 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_70b1b09ce16e929ec80402aa5158b145 = $(`<div id="html_70b1b09ce16e929ec80402aa5158b145" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e31-e36-e38-e39-e46-x5-z3-z8-zuendspulen-6-stueck-bremi-11860/2651002118-223-8409 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/c6/c65f7be3-4d93-42b8-9ae9-5c336c6f3e34?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW E31 E36 E38 E39 E46 X5 Z3 Z8 Zündspulen 6 Stück Bremi 11860</div>             <div style="color: #666; margin-bottom: 12px;">71739 Oberriexingen</div>             <div style="font-weight: bold; color: #333;">50€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:05</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_d7c3667d3e7f17acc12915e126bad2a6.setContent(html_70b1b09ce16e929ec80402aa5158b145);
+            
+        
+
+        marker_528dfbf99810dc051f970797d08d239c.bindPopup(popup_d7c3667d3e7f17acc12915e126bad2a6)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_4fa03b36aaf99f71343183e5dfb94f42 = L.marker(
+                [50.3206834, 12.2535919],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_992845fd67aad0130caff44ab015394c = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_64ad73be7b0f67bd021da348252cf3ac = $(`<div id="html_64ad73be7b0f67bd021da348252cf3ac" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-e36-felgen-18-zoll-voltec/2677354635-223-19751 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/16/16e997ba-d3c7-43ee-8b7d-f6693aa66d92?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW e36 felgen 18 zoll VOLTEC</div>             <div style="color: #666; margin-bottom: 12px;">08626 Adorf-​Vogtland</div>             <div style="font-weight: bold; color: #333;">450€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 18:58</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_992845fd67aad0130caff44ab015394c.setContent(html_64ad73be7b0f67bd021da348252cf3ac);
+            
+        
+
+        marker_4fa03b36aaf99f71343183e5dfb94f42.bindPopup(popup_992845fd67aad0130caff44ab015394c)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_8ed0332835aa607058be21ee75e48086 = L.marker(
+                [49.4454211, 11.858728],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_b02fa8c56cff80923b3fa582ff5f2621 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_d1f3dc13ccdf407e567eb9fd841eddbd = $(`<div id="html_d1f3dc13ccdf407e567eb9fd841eddbd" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/e36-328i-m-coupe-individual-daytonaviolett/2677328782-216-5790 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/ac/acb59d7d-16f0-4894-9272-a7d92fbd5c6d?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">E36 328i M Coupe Individual Daytonaviolett</div>             <div style="color: #666; margin-bottom: 12px;">92224 Amberg</div>             <div style="font-weight: bold; color: #333;">24.999€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 18:36</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_b02fa8c56cff80923b3fa582ff5f2621.setContent(html_d1f3dc13ccdf407e567eb9fd841eddbd);
+            
+        
+
+        marker_8ed0332835aa607058be21ee75e48086.bindPopup(popup_b02fa8c56cff80923b3fa582ff5f2621)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_9de148fe9e418a78a98212e2336a521a = L.marker(
+                [50.9281717, 11.5879359],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_c15a0c843e77696e07016b809e2b5761 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_ff2837c4636bf0f69fca8910824dd32d = $(`<div id="html_ff2837c4636bf0f69fca8910824dd32d" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/abdeckungen-fuer-lautsprecher-und-sicherungskasten-megane-1/2677426689-223-3779 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/3f/3f907ade-395c-4446-b452-69ed94499efc?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Abdeckungen für Lautsprecher und Sicherungskasten, Megane 1</div>             <div style="color: #666; margin-bottom: 12px;">07751 Jena</div>             <div style="font-weight: bold; color: #333;">12€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:06</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_c15a0c843e77696e07016b809e2b5761.setContent(html_ff2837c4636bf0f69fca8910824dd32d);
+            
+        
+
+        marker_9de148fe9e418a78a98212e2336a521a.bindPopup(popup_c15a0c843e77696e07016b809e2b5761)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_aa7699d6fa9113b5e9ac0e771a193df7 = L.marker(
+                [48.9321398, 8.9568316],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_51aa34053c68fba0d26b1036e6e44ee8 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_ed64418ff79b177640d8a46a490d920e = $(`<div id="html_ed64418ff79b177640d8a46a490d920e" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-v-l-bmw-x3-e83-6929100/1315089632-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/ef/eff61752-7d3a-409f-8e10-e3425fcbb71d?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher V,L BMW X3 E83  6929100</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">16€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_51aa34053c68fba0d26b1036e6e44ee8.setContent(html_ed64418ff79b177640d8a46a490d920e);
+            
+        
+
+        marker_aa7699d6fa9113b5e9ac0e771a193df7.bindPopup(popup_51aa34053c68fba0d26b1036e6e44ee8)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_c8ec22cf51ac04871964465a2c6775e7 = L.marker(
+                [52.4108261, 12.5497933],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_625e05b81ab440f0d5f287effc6fcfa9 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_d03a9448dfe0680661cda63b2d51b3a1 = $(`<div id="html_d03a9448dfe0680661cda63b2d51b3a1" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/original-opel-lautsprecher-navilink-5-0-soundsystem/2677398053-223-7739 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/66/6641d0c1-6800-4769-9f8e-8b0c63eee423?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Original Opel Lautsprecher NaviLink 5.0 Soundsystem</div>             <div style="color: #666; margin-bottom: 12px;">14770 Brandenburg an der Havel</div>             <div style="font-weight: bold; color: #333;">60€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:39</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_625e05b81ab440f0d5f287effc6fcfa9.setContent(html_d03a9448dfe0680661cda63b2d51b3a1);
+            
+        
+
+        marker_c8ec22cf51ac04871964465a2c6775e7.bindPopup(popup_625e05b81ab440f0d5f287effc6fcfa9)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_161749d99de38a886b0d91a137894173 = L.marker(
+                [48.8953937, 9.1895147],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_8a65437d3617c7b402c88c3f72fde43c = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_f3b18c1da8f12916696d737fb7ba0ae8 = $(`<div id="html_f3b18c1da8f12916696d737fb7ba0ae8" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-x1-f48-hi-fi-lautsprecher-satz-/2677351246-223-9065 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a5/a5122a38-771b-4d6b-952f-82a0a5361ac7?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW X1 F48 Hi-fi Lautsprecher Satz.</div>             <div style="color: #666; margin-bottom: 12px;">71634 Ludwigsburg</div>             <div style="font-weight: bold; color: #333;">150€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 18:55</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_8a65437d3617c7b402c88c3f72fde43c.setContent(html_f3b18c1da8f12916696d737fb7ba0ae8);
+            
+        
+
+        marker_161749d99de38a886b0d91a137894173.bindPopup(popup_8a65437d3617c7b402c88c3f72fde43c)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_f71305d111dcabedf39a69e295b3333a = L.marker(
+                [50.0373241, 12.0027278],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_f1c72d92129b5c769f04d20dcc5812b6 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_0c260a0f56768fee228bbe8f3b70fb04 = $(`<div id="html_0c260a0f56768fee228bbe8f3b70fb04" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/vw-passat-3c-hochton-lautsprecher/2651089723-223-7009 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/c1/c13ab9a7-6223-49db-9832-8dc0c2ab0c04?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">VW Passat 3C Hochton Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">95632 Wunsiedel</div>             <div style="font-weight: bold; color: #333;">30€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 17:05</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_f1c72d92129b5c769f04d20dcc5812b6.setContent(html_0c260a0f56768fee228bbe8f3b70fb04);
+            
+        
+
+        marker_f71305d111dcabedf39a69e295b3333a.bindPopup(popup_f1c72d92129b5c769f04d20dcc5812b6)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_94369da60740ec49e01765c9e74785f4 = L.marker(
+                [49.0765007, 9.1462228],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_3f6771a898bd978bd5755bfc8f3f4197 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_939df83659e64571b2879a7a8e7c4de7 = $(`<div id="html_939df83659e64571b2879a7a8e7c4de7" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/mazda-mx5-nb-lautsprecher/2677063848-223-8779 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/03/03203c6b-216a-402b-a733-2e75208f1509?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Mazda MX5 NB Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">74348 Lauffen</div>             <div style="font-weight: bold; color: #333;">Zuverschenken</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 15:42</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_3f6771a898bd978bd5755bfc8f3f4197.setContent(html_939df83659e64571b2879a7a8e7c4de7);
+            
+        
+
+        marker_94369da60740ec49e01765c9e74785f4.bindPopup(popup_3f6771a898bd978bd5755bfc8f3f4197)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_6171d553c5fe21f75e94f02876e8a922 = L.marker(
+                [52.5881913, 13.2896968],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_a6e63462ea94602dd88ffbc5c1462aa9 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_12cf9217c8172cb0a21091e1687a1c07 = $(`<div id="html_12cf9217c8172cb0a21091e1687a1c07" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/w124-lautsprecher-vorne-hinten/2677027253-223-24321 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/99/99919d72-5bbc-42a4-a318-698785cdf2b8?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">W124 Lautsprecher vorne + hinten</div>             <div style="color: #666; margin-bottom: 12px;">13509 Tegel</div>             <div style="font-weight: bold; color: #333;">30€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 15:19</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_a6e63462ea94602dd88ffbc5c1462aa9.setContent(html_12cf9217c8172cb0a21091e1687a1c07);
+            
+        
+
+        marker_6171d553c5fe21f75e94f02876e8a922.bindPopup(popup_a6e63462ea94602dd88ffbc5c1462aa9)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_447716aae61ad02b525784d00ba734e0 = L.marker(
+                [49.0042059, 9.4999193],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_f8463ee923ee3a94ffc4b365ea9c6efe = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_3618f920ceb6c8e16b9fd7852c2027a6 = $(`<div id="html_3618f920ceb6c8e16b9fd7852c2027a6" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-fahrertuer-original-peugeot-207/2677013082-223-20156 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/e6/e67d22e7-c4be-48d4-88ef-5462633b7e26?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher Fahrertür Original Peugeot 207</div>             <div style="color: #666; margin-bottom: 12px;">71560 Sulzbach an der Murr</div>             <div style="font-weight: bold; color: #333;">15€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 15:11</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_f8463ee923ee3a94ffc4b365ea9c6efe.setContent(html_3618f920ceb6c8e16b9fd7852c2027a6);
+            
+        
+
+        marker_447716aae61ad02b525784d00ba734e0.bindPopup(popup_f8463ee923ee3a94ffc4b365ea9c6efe)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_c1947ebd38675fd63b9b7a6ac66cce8a = L.marker(
+                [48.5956244, 8.8671496],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_a287b0255ba20c509dfc737388ea08e9 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_e1f8fda7f61a419cc526c946913b44d5 = $(`<div id="html_e1f8fda7f61a419cc526c946913b44d5" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/e46-lautsprecher-hinten/2676966551-223-8097 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/6f/6f58785c-ccab-4b4e-ad8a-5fb8f4c6190e?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">E46 Lautsprecher hinten</div>             <div style="color: #666; margin-bottom: 12px;">71083 Herrenberg</div>             <div style="font-weight: bold; color: #333;">39€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:42</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_a287b0255ba20c509dfc737388ea08e9.setContent(html_e1f8fda7f61a419cc526c946913b44d5);
+            
+        
+
+        marker_c1947ebd38675fd63b9b7a6ac66cce8a.bindPopup(popup_a287b0255ba20c509dfc737388ea08e9)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_b98919db066bd1b47b260d57a3a597f0 = L.marker(
+                [48.7821428, 9.2079413],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_7e69ccf75f85d075fedd2b5be6a58d87 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_f0facd1ee282ba25e1db6a3523a4b79b = $(`<div id="html_f0facd1ee282ba25e1db6a3523a4b79b" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/auto-lautsprecher/2676953782-223-9286 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/79/796863f7-9a47-4eef-af9c-0e7dd47ea5d2?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Auto Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">70184 Stuttgart-​Ost</div>             <div style="font-weight: bold; color: #333;">30€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:35</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_7e69ccf75f85d075fedd2b5be6a58d87.setContent(html_f0facd1ee282ba25e1db6a3523a4b79b);
+            
+        
+
+        marker_b98919db066bd1b47b260d57a3a597f0.bindPopup(popup_7e69ccf75f85d075fedd2b5be6a58d87)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_9f9ff2ba19b19dcfddd8197c91f52c7d = L.marker(
+                [48.7921428, 9.2179413],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_8c6bc9a4c4f1d04b7524c9df53c0adf9 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_b2a0195065401d86a114ad4b54a4dce4 = $(`<div id="html_b2a0195065401d86a114ad4b54a4dce4" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/pioneer-auto-lautsprecher/2676940425-172-9286 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b8/b8ef2487-faa4-469e-84b3-221ad49edbb5?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Pioneer Auto Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">70184 Stuttgart-​Ost</div>             <div style="font-weight: bold; color: #333;">20€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:27</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_8c6bc9a4c4f1d04b7524c9df53c0adf9.setContent(html_b2a0195065401d86a114ad4b54a4dce4);
+            
+        
+
+        marker_9f9ff2ba19b19dcfddd8197c91f52c7d.bindPopup(popup_8c6bc9a4c4f1d04b7524c9df53c0adf9)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_dbeedceb10cd8ab1e8b8fbb932a8341a = L.marker(
+                [48.9421398, 8.966831599999999],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_dd4cf4724b5343ac2d39a4a07dbb5e56 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_32155ae77b352578331e0f3486d902b4 = $(`<div id="html_32155ae77b352578331e0f3486d902b4" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-v-r-bmw-x3-e83-6929100/1315097283-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/be/bedb0e51-b948-43e5-b4c1-35078cf8e271?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher V,R BMW X3 E83  6929100</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">16€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_dd4cf4724b5343ac2d39a4a07dbb5e56.setContent(html_32155ae77b352578331e0f3486d902b4);
+            
+        
+
+        marker_dbeedceb10cd8ab1e8b8fbb932a8341a.bindPopup(popup_dd4cf4724b5343ac2d39a4a07dbb5e56)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_328e56695fffe3557fb2a6cf83ca9386 = L.marker(
+                [51.3400124, 12.3347023],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_24fadb892cee7a0969cca648d2598c6c = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_df1b35afb813f4cbc10f6a79b5d304aa = $(`<div id="html_df1b35afb813f4cbc10f6a79b5d304aa" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/audi-a5-s5-8t-bang-olufson-lautsprecher-dekor-audio-system/2676830881-223-4236 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/19/19ba1511-2bab-4b5f-8723-1e860cd754cb?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Audi A5 S5 8T Bang & Olufson Lautsprecher Dekor Audio System</div>             <div style="color: #666; margin-bottom: 12px;">04179 Altlindenau</div>             <div style="font-weight: bold; color: #333;">60€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 13:24</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_24fadb892cee7a0969cca648d2598c6c.setContent(html_df1b35afb813f4cbc10f6a79b5d304aa);
+            
+        
+
+        marker_328e56695fffe3557fb2a6cf83ca9386.bindPopup(popup_24fadb892cee7a0969cca648d2598c6c)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_3fcd3ea042711a8758b161dac268d346 = L.marker(
+                [50.6477963, 12.1734848],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_d478b96b6c1a8acadb1e89a3dd101689 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_34ad6c9eca13150918df73dfa6c29512 = $(`<div id="html_34ad6c9eca13150918df73dfa6c29512" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-vag/2676704975-223-3605 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b1/b1db5480-2477-4bc3-9a4b-2e1745394592?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher VAG</div>             <div style="color: #666; margin-bottom: 12px;">07973 Greiz</div>             <div style="font-weight: bold; color: #333;">35€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:12</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_d478b96b6c1a8acadb1e89a3dd101689.setContent(html_34ad6c9eca13150918df73dfa6c29512);
+            
+        
+
+        marker_3fcd3ea042711a8758b161dac268d346.bindPopup(popup_d478b96b6c1a8acadb1e89a3dd101689)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_8bc2a88f8901375b4e9778ed91cca4ac = L.marker(
+                [48.9421398, 8.966831599999999],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_dec1a1d97d7df5bb0554ea535df81716 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_8bbc4e2feeff399016c82ebf9efbe3c6 = $(`<div id="html_8bbc4e2feeff399016c82ebf9efbe3c6" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-rechts-peugeot-boxer-2-8hdi-130395401/1360601532-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/af/af42bc51-ae76-48f6-85de-66daa70daef3?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher Rechts Peugeot Boxer 2.8HDi 130395401</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">19€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_dec1a1d97d7df5bb0554ea535df81716.setContent(html_8bbc4e2feeff399016c82ebf9efbe3c6);
+            
+        
+
+        marker_8bc2a88f8901375b4e9778ed91cca4ac.bindPopup(popup_dec1a1d97d7df5bb0554ea535df81716)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_c04a6fee84d33457e0a02aef176d11e0 = L.marker(
+                [48.6727602, 9.3838404],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_3d47808521f5c889add4303e8ab844af = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_c6ab299e889e3f4642a5b16d49af7d7d = $(`<div id="html_c6ab299e889e3f4642a5b16d49af7d7d" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/auto-radio-oldtimer-lautsprecher-einbauring-mac-audio-oldtimer/2676603647-223-8390 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/49/4900d5fd-997f-45a0-9233-9d8da7aafc1a?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Auto Radio Oldtimer Lautsprecher Einbauring mac Audio Oldtimer</div>             <div style="color: #666; margin-bottom: 12px;">73240 Wendlingen am Neckar</div>             <div style="font-weight: bold; color: #333;">10€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 11:12</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_3d47808521f5c889add4303e8ab844af.setContent(html_c6ab299e889e3f4642a5b16d49af7d7d);
+            
+        
+
+        marker_c04a6fee84d33457e0a02aef176d11e0.bindPopup(popup_3d47808521f5c889add4303e8ab844af)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_e161ad37173e731ad97443ad7c606f01 = L.marker(
+                [48.9421398, 8.966831599999999],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_d32771e47c34491e966680e6618260e4 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_b7833486a16a856beee84dbc184a8e06 = $(`<div id="html_b7833486a16a856beee84dbc184a8e06" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/schalter-fensterheber-lautsprecher-hinten-opel-vectra-c-903792/1911936458-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/fe/fe6d8177-2dcc-4b3f-be8e-2663054c7b19?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Schalter Fensterheber Lautsprecher   hinten  Opel Vectra C 903792</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">17€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 11:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_d32771e47c34491e966680e6618260e4.setContent(html_b7833486a16a856beee84dbc184a8e06);
+            
+        
+
+        marker_e161ad37173e731ad97443ad7c606f01.bindPopup(popup_d32771e47c34491e966680e6618260e4)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_541e7278bc5300acdd36dfeaeae85bb2 = L.marker(
+                [48.9487272, 8.8492931],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_96b6f6780092b2447e714e0e2aba9c70 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_23862e691cf36305f2ac8ffe5b35d222 = $(`<div id="html_23862e691cf36305f2ac8ffe5b35d222" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-ml-63-500-320-350-fensterheber-lautsprecher/2360254079-223-8428 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/fc/fcaca79a-57ff-4d85-adb3-68c4e91e94b8?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">MERCEDES BENZ ML 63 500 320 350 —-FENSTERHEBER LAUTSPRECHER</div>             <div style="color: #666; margin-bottom: 12px;">75417 Mühlacker</div>             <div style="font-weight: bold; color: #333;">125€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 09:02</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_96b6f6780092b2447e714e0e2aba9c70.setContent(html_23862e691cf36305f2ac8ffe5b35d222);
+            
+        
+
+        marker_541e7278bc5300acdd36dfeaeae85bb2.bindPopup(popup_96b6f6780092b2447e714e0e2aba9c70)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_0ff9ae087b571e3b8d3d2f27d87d601f = L.marker(
+                [49.057508, 9.8981122],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_696473e93bf5aac9d7bdb4c0cc572e05 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_85268fb38bece72d48041ae2aba28d14 = $(`<div id="html_85268fb38bece72d48041ae2aba28d14" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/mercedes-r171-slk-lautsprecher-tweeter-hochtoener-a2118202702/2085213234-223-9154 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/04/04543c7f-8c91-4bf7-896f-f063afc8d226?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Mercedes R171 SLK Lautsprecher Tweeter Hochtöner A2118202702</div>             <div style="color: #666; margin-bottom: 12px;">74423 Obersontheim</div>             <div style="font-weight: bold; color: #333;">35€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 08:01</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_696473e93bf5aac9d7bdb4c0cc572e05.setContent(html_85268fb38bece72d48041ae2aba28d14);
+            
+        
+
+        marker_0ff9ae087b571e3b8d3d2f27d87d601f.bindPopup(popup_696473e93bf5aac9d7bdb4c0cc572e05)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_546c026aabaa6084ea6d4ec0e3aa64ff = L.marker(
+                [48.9693209532, 9.2664897359],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_f9b8092af5a57b272e4a8b2d11663a9f = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_0154a6454e0d4bebe44a8927c0b17aa6 = $(`<div id="html_0154a6454e0d4bebe44a8927c0b17aa6" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-hinten-fuer-mitsubishi-evo-7-8-9-ct9a/304126498-223-21584 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b7/b74546a2-e28a-4ea5-97bc-e3d5c71aaba6?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher hinten für Mitsubishi Evo 7 8 9 CT9A</div>             <div style="color: #666; margin-bottom: 12px;">71711 Murr Württemberg</div>             <div style="font-weight: bold; color: #333;">30€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 08:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_f9b8092af5a57b272e4a8b2d11663a9f.setContent(html_0154a6454e0d4bebe44a8927c0b17aa6);
+            
+        
+
+        marker_546c026aabaa6084ea6d4ec0e3aa64ff.bindPopup(popup_f9b8092af5a57b272e4a8b2d11663a9f)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_070b6c2cefba80280a528a090ad81869 = L.marker(
+                [50.9281717, 11.5879359],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_b04ef8a47501823972b49d818377f5c2 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_0cddc1088b6bfbab5d555984243d5180 = $(`<div id="html_0cddc1088b6bfbab5d555984243d5180" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/abdeckungen-fuer-lautsprecher-und-sicherungskasten-megane-1/2677426689-223-3779 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/3f/3f907ade-395c-4446-b452-69ed94499efc?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Abdeckungen für Lautsprecher und Sicherungskasten, Megane 1</div>             <div style="color: #666; margin-bottom: 12px;">07751 Jena</div>             <div style="font-weight: bold; color: #333;">12€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:06</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_b04ef8a47501823972b49d818377f5c2.setContent(html_0cddc1088b6bfbab5d555984243d5180);
+            
+        
+
+        marker_070b6c2cefba80280a528a090ad81869.bindPopup(popup_b04ef8a47501823972b49d818377f5c2)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_2d1b8251effbc9c30eac219b2af35b4f = L.marker(
+                [48.9321398, 8.9568316],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_138ea71626d7557e9445baa54993ec40 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_17cb4f2e3e36d9a0db3bac0043d59997 = $(`<div id="html_17cb4f2e3e36d9a0db3bac0043d59997" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-v-l-bmw-x3-e83-6929100/1315089632-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/ef/eff61752-7d3a-409f-8e10-e3425fcbb71d?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher V,L BMW X3 E83  6929100</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">16€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 20:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_138ea71626d7557e9445baa54993ec40.setContent(html_17cb4f2e3e36d9a0db3bac0043d59997);
+            
+        
+
+        marker_2d1b8251effbc9c30eac219b2af35b4f.bindPopup(popup_138ea71626d7557e9445baa54993ec40)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_41a9cf018e1676cafb2a72aa95f48533 = L.marker(
+                [52.4108261, 12.5497933],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_d56105e5877371a5b702aa203fa0e56c = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_d647700903057f95a0ea30899709db6d = $(`<div id="html_d647700903057f95a0ea30899709db6d" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/original-opel-lautsprecher-navilink-5-0-soundsystem/2677398053-223-7739 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/66/6641d0c1-6800-4769-9f8e-8b0c63eee423?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Original Opel Lautsprecher NaviLink 5.0 Soundsystem</div>             <div style="color: #666; margin-bottom: 12px;">14770 Brandenburg an der Havel</div>             <div style="font-weight: bold; color: #333;">60€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 19:39</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_d56105e5877371a5b702aa203fa0e56c.setContent(html_d647700903057f95a0ea30899709db6d);
+            
+        
+
+        marker_41a9cf018e1676cafb2a72aa95f48533.bindPopup(popup_d56105e5877371a5b702aa203fa0e56c)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_6ed865f455fa0b6d34464e56c9e6818c = L.marker(
+                [48.8953937, 9.1895147],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_d0e28d22e49a84f6ee3f84a0bdd361ee = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_b5d50597d743364d84bf191882e59fe5 = $(`<div id="html_b5d50597d743364d84bf191882e59fe5" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bmw-x1-f48-hi-fi-lautsprecher-satz-/2677351246-223-9065 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a5/a5122a38-771b-4d6b-952f-82a0a5361ac7?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">BMW X1 F48 Hi-fi Lautsprecher Satz.</div>             <div style="color: #666; margin-bottom: 12px;">71634 Ludwigsburg</div>             <div style="font-weight: bold; color: #333;">150€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 18:55</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_d0e28d22e49a84f6ee3f84a0bdd361ee.setContent(html_b5d50597d743364d84bf191882e59fe5);
+            
+        
+
+        marker_6ed865f455fa0b6d34464e56c9e6818c.bindPopup(popup_d0e28d22e49a84f6ee3f84a0bdd361ee)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_0456b46e1f443bfedd0461ec68cdc512 = L.marker(
+                [50.0373241, 12.0027278],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_486d81e6c567ff8122d0901ae4381194 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_23c51664984af71b2e0f53ed830cfab1 = $(`<div id="html_23c51664984af71b2e0f53ed830cfab1" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/vw-passat-3c-hochton-lautsprecher/2651089723-223-7009 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/c1/c13ab9a7-6223-49db-9832-8dc0c2ab0c04?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">VW Passat 3C Hochton Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">95632 Wunsiedel</div>             <div style="font-weight: bold; color: #333;">30€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 17:05</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_486d81e6c567ff8122d0901ae4381194.setContent(html_23c51664984af71b2e0f53ed830cfab1);
+            
+        
+
+        marker_0456b46e1f443bfedd0461ec68cdc512.bindPopup(popup_486d81e6c567ff8122d0901ae4381194)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_1716a3d99a8d91804ca2caa63b38c951 = L.marker(
+                [49.0765007, 9.1462228],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_84bdb91edb3f806e50007a2f73dfab3f = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_18b4e3234a4d4f61ff37f0fb6644da1f = $(`<div id="html_18b4e3234a4d4f61ff37f0fb6644da1f" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/mazda-mx5-nb-lautsprecher/2677063848-223-8779 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/03/03203c6b-216a-402b-a733-2e75208f1509?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Mazda MX5 NB Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">74348 Lauffen</div>             <div style="font-weight: bold; color: #333;">Zuverschenken</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 15:42</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_84bdb91edb3f806e50007a2f73dfab3f.setContent(html_18b4e3234a4d4f61ff37f0fb6644da1f);
+            
+        
+
+        marker_1716a3d99a8d91804ca2caa63b38c951.bindPopup(popup_84bdb91edb3f806e50007a2f73dfab3f)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_3b7fc9081d249bc52d1a74ca8db5e02d = L.marker(
+                [52.5881913, 13.2896968],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_8169d0d01803784a7dab90dbdf4bc461 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_c0e94ddbb2f38d27e86a5a465ef85bcd = $(`<div id="html_c0e94ddbb2f38d27e86a5a465ef85bcd" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/w124-lautsprecher-vorne-hinten/2677027253-223-24321 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/99/99919d72-5bbc-42a4-a318-698785cdf2b8?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">W124 Lautsprecher vorne + hinten</div>             <div style="color: #666; margin-bottom: 12px;">13509 Tegel</div>             <div style="font-weight: bold; color: #333;">30€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 15:19</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_8169d0d01803784a7dab90dbdf4bc461.setContent(html_c0e94ddbb2f38d27e86a5a465ef85bcd);
+            
+        
+
+        marker_3b7fc9081d249bc52d1a74ca8db5e02d.bindPopup(popup_8169d0d01803784a7dab90dbdf4bc461)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_7fbc788974c6838e39e43e61befd72a8 = L.marker(
+                [49.0042059, 9.4999193],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_67a7574be1bba783abea10116eeee18e = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_478b8e3f6e25042982a157b0548a181a = $(`<div id="html_478b8e3f6e25042982a157b0548a181a" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-fahrertuer-original-peugeot-207/2677013082-223-20156 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/e6/e67d22e7-c4be-48d4-88ef-5462633b7e26?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher Fahrertür Original Peugeot 207</div>             <div style="color: #666; margin-bottom: 12px;">71560 Sulzbach an der Murr</div>             <div style="font-weight: bold; color: #333;">15€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 15:11</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_67a7574be1bba783abea10116eeee18e.setContent(html_478b8e3f6e25042982a157b0548a181a);
+            
+        
+
+        marker_7fbc788974c6838e39e43e61befd72a8.bindPopup(popup_67a7574be1bba783abea10116eeee18e)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_12f2647462658c3425f3c8585f7f3ce4 = L.marker(
+                [48.5956244, 8.8671496],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_d5ea61f492c896ec1a15987dde911443 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_409a7e6232bd33412b3a39517f6d5fce = $(`<div id="html_409a7e6232bd33412b3a39517f6d5fce" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/e46-lautsprecher-hinten/2676966551-223-8097 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/6f/6f58785c-ccab-4b4e-ad8a-5fb8f4c6190e?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">E46 Lautsprecher hinten</div>             <div style="color: #666; margin-bottom: 12px;">71083 Herrenberg</div>             <div style="font-weight: bold; color: #333;">39€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:42</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_d5ea61f492c896ec1a15987dde911443.setContent(html_409a7e6232bd33412b3a39517f6d5fce);
+            
+        
+
+        marker_12f2647462658c3425f3c8585f7f3ce4.bindPopup(popup_d5ea61f492c896ec1a15987dde911443)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_ea5104a83e044f3f06bbee506591acbe = L.marker(
+                [48.7821428, 9.2079413],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_5e3bbcc88d6be3760419126d6e9239b2 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_6d91f061cc8ecf923b20abe715e7abfa = $(`<div id="html_6d91f061cc8ecf923b20abe715e7abfa" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/auto-lautsprecher/2676953782-223-9286 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/79/796863f7-9a47-4eef-af9c-0e7dd47ea5d2?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Auto Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">70184 Stuttgart-​Ost</div>             <div style="font-weight: bold; color: #333;">30€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:35</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_5e3bbcc88d6be3760419126d6e9239b2.setContent(html_6d91f061cc8ecf923b20abe715e7abfa);
+            
+        
+
+        marker_ea5104a83e044f3f06bbee506591acbe.bindPopup(popup_5e3bbcc88d6be3760419126d6e9239b2)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_87d26b7a4ae074726cd4471a63a432f0 = L.marker(
+                [48.7921428, 9.2179413],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_f78973895fdec1235f608837e38f7070 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_f6d956c3bc31373b1e18c0e89cccbae1 = $(`<div id="html_f6d956c3bc31373b1e18c0e89cccbae1" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/pioneer-auto-lautsprecher/2676940425-172-9286 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b8/b8ef2487-faa4-469e-84b3-221ad49edbb5?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Pioneer Auto Lautsprecher</div>             <div style="color: #666; margin-bottom: 12px;">70184 Stuttgart-​Ost</div>             <div style="font-weight: bold; color: #333;">20€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:27</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_f78973895fdec1235f608837e38f7070.setContent(html_f6d956c3bc31373b1e18c0e89cccbae1);
+            
+        
+
+        marker_87d26b7a4ae074726cd4471a63a432f0.bindPopup(popup_f78973895fdec1235f608837e38f7070)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_c1939d9a28284b84827df8a458f0ed43 = L.marker(
+                [48.9421398, 8.966831599999999],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_39089a60e6b652902d462052a34fac66 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_f9727d5b4fd5af47b55abf792fc5e923 = $(`<div id="html_f9727d5b4fd5af47b55abf792fc5e923" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-v-r-bmw-x3-e83-6929100/1315097283-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/be/bedb0e51-b948-43e5-b4c1-35078cf8e271?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher V,R BMW X3 E83  6929100</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">16€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_39089a60e6b652902d462052a34fac66.setContent(html_f9727d5b4fd5af47b55abf792fc5e923);
+            
+        
+
+        marker_c1939d9a28284b84827df8a458f0ed43.bindPopup(popup_39089a60e6b652902d462052a34fac66)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_541e3a1a10c3d6ef43f7e1f77f886371 = L.marker(
+                [51.3400124, 12.3347023],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_ebaf2ed7cfac90a9d4838cb37f98628d = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_6133cb2bba14c47b2b642853e46753e1 = $(`<div id="html_6133cb2bba14c47b2b642853e46753e1" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/audi-a5-s5-8t-bang-olufson-lautsprecher-dekor-audio-system/2676830881-223-4236 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/19/19ba1511-2bab-4b5f-8723-1e860cd754cb?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Audi A5 S5 8T Bang & Olufson Lautsprecher Dekor Audio System</div>             <div style="color: #666; margin-bottom: 12px;">04179 Altlindenau</div>             <div style="font-weight: bold; color: #333;">60€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 13:24</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_ebaf2ed7cfac90a9d4838cb37f98628d.setContent(html_6133cb2bba14c47b2b642853e46753e1);
+            
+        
+
+        marker_541e3a1a10c3d6ef43f7e1f77f886371.bindPopup(popup_ebaf2ed7cfac90a9d4838cb37f98628d)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_4058f17dfdb87de6445298c334d9417e = L.marker(
+                [50.6477963, 12.1734848],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_15c29bc4303b828b377024038e26b4f3 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_eaa94f78cc63cc36b555214021b128ae = $(`<div id="html_eaa94f78cc63cc36b555214021b128ae" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-vag/2676704975-223-3605 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b1/b1db5480-2477-4bc3-9a4b-2e1745394592?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher VAG</div>             <div style="color: #666; margin-bottom: 12px;">07973 Greiz</div>             <div style="font-weight: bold; color: #333;">35€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:12</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_15c29bc4303b828b377024038e26b4f3.setContent(html_eaa94f78cc63cc36b555214021b128ae);
+            
+        
+
+        marker_4058f17dfdb87de6445298c334d9417e.bindPopup(popup_15c29bc4303b828b377024038e26b4f3)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_122adb2fb4d5819c0cf6782d4faac68c = L.marker(
+                [48.9521398, 8.9768316],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_88fb208e825b8723727de77e3bdf5687 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_d816aaffd31c80745ab83925fbfeec39 = $(`<div id="html_d816aaffd31c80745ab83925fbfeec39" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-rechts-peugeot-boxer-2-8hdi-130395401/1360601532-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/af/af42bc51-ae76-48f6-85de-66daa70daef3?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher Rechts Peugeot Boxer 2.8HDi 130395401</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">19€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_88fb208e825b8723727de77e3bdf5687.setContent(html_d816aaffd31c80745ab83925fbfeec39);
+            
+        
+
+        marker_122adb2fb4d5819c0cf6782d4faac68c.bindPopup(popup_88fb208e825b8723727de77e3bdf5687)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_dc74e3f5f4b8298946a0af466fb3e4ce = L.marker(
+                [48.6727602, 9.3838404],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_01e30ea4b9d3c7a45eae7faaa260ca1b = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_cefc3d709771cd6dca6866a2e85f56a4 = $(`<div id="html_cefc3d709771cd6dca6866a2e85f56a4" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/auto-radio-oldtimer-lautsprecher-einbauring-mac-audio-oldtimer/2676603647-223-8390 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/49/4900d5fd-997f-45a0-9233-9d8da7aafc1a?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Auto Radio Oldtimer Lautsprecher Einbauring mac Audio Oldtimer</div>             <div style="color: #666; margin-bottom: 12px;">73240 Wendlingen am Neckar</div>             <div style="font-weight: bold; color: #333;">10€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 11:12</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_01e30ea4b9d3c7a45eae7faaa260ca1b.setContent(html_cefc3d709771cd6dca6866a2e85f56a4);
+            
+        
+
+        marker_dc74e3f5f4b8298946a0af466fb3e4ce.bindPopup(popup_01e30ea4b9d3c7a45eae7faaa260ca1b)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_07fcd40baa3f616028273a048cae1e8c = L.marker(
+                [48.9521398, 8.9768316],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_184eaaef158e45ad2a51bf3b010a8895 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_5270fcb4fa8c716feef4918cf8d2cd36 = $(`<div id="html_5270fcb4fa8c716feef4918cf8d2cd36" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/schalter-fensterheber-lautsprecher-hinten-opel-vectra-c-903792/1911936458-223-8397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/fe/fe6d8177-2dcc-4b3f-be8e-2663054c7b19?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Schalter Fensterheber Lautsprecher   hinten  Opel Vectra C 903792</div>             <div style="color: #666; margin-bottom: 12px;">71665 Vaihingen an der Enz</div>             <div style="font-weight: bold; color: #333;">17€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 11:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_184eaaef158e45ad2a51bf3b010a8895.setContent(html_5270fcb4fa8c716feef4918cf8d2cd36);
+            
+        
+
+        marker_07fcd40baa3f616028273a048cae1e8c.bindPopup(popup_184eaaef158e45ad2a51bf3b010a8895)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_e51cf74db14951e420324ff0743ebc9d = L.marker(
+                [48.9487272, 8.8492931],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_31c4590392d67d62a783ed6215952550 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_97503dd3d7580a54e5371aa05137b3a8 = $(`<div id="html_97503dd3d7580a54e5371aa05137b3a8" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-ml-63-500-320-350-fensterheber-lautsprecher/2360254079-223-8428 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/fc/fcaca79a-57ff-4d85-adb3-68c4e91e94b8?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">MERCEDES BENZ ML 63 500 320 350 —-FENSTERHEBER LAUTSPRECHER</div>             <div style="color: #666; margin-bottom: 12px;">75417 Mühlacker</div>             <div style="font-weight: bold; color: #333;">125€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 09:02</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_31c4590392d67d62a783ed6215952550.setContent(html_97503dd3d7580a54e5371aa05137b3a8);
+            
+        
+
+        marker_e51cf74db14951e420324ff0743ebc9d.bindPopup(popup_31c4590392d67d62a783ed6215952550)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_44a5436e8d748390d96a03af71e65d5f = L.marker(
+                [49.057508, 9.8981122],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_67324c8eed7542e552b056747b8c5bfe = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_ed78f29c6823392be603ae4b593c6801 = $(`<div id="html_ed78f29c6823392be603ae4b593c6801" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/mercedes-r171-slk-lautsprecher-tweeter-hochtoener-a2118202702/2085213234-223-9154 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/04/04543c7f-8c91-4bf7-896f-f063afc8d226?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Mercedes R171 SLK Lautsprecher Tweeter Hochtöner A2118202702</div>             <div style="color: #666; margin-bottom: 12px;">74423 Obersontheim</div>             <div style="font-weight: bold; color: #333;">35€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 08:01</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_67324c8eed7542e552b056747b8c5bfe.setContent(html_ed78f29c6823392be603ae4b593c6801);
+            
+        
+
+        marker_44a5436e8d748390d96a03af71e65d5f.bindPopup(popup_67324c8eed7542e552b056747b8c5bfe)
+        ;
+
+        
+    
+    
+            tile_layer_53381d7a5bd3840b36824e24c272203c.addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+            var marker_cd3d8bc698021f5a5f219f1e29f833fd = L.marker(
+                [48.9693209532, 9.2664897359],
+                {}
+            ).addTo(map_2b8a47cc692efa7d014c5eab673af0ec);
+        
+    
+        var popup_c47003bf13bbf744e1d927cdfab58047 = L.popup({"maxWidth": 2650});
+
+        
+            
+                var html_e55dc19266df98c039d67a92a552e11e = $(`<div id="html_e55dc19266df98c039d67a92a552e11e" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/lautsprecher-hinten-fuer-mitsubishi-evo-7-8-9-ct9a/304126498-223-21584 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b7/b74546a2-e28a-4ea5-97bc-e3d5c71aaba6?rule=$_35.JPG alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Lautsprecher hinten für Mitsubishi Evo 7 8 9 CT9A</div>             <div style="color: #666; margin-bottom: 12px;">71711 Murr Württemberg</div>             <div style="font-weight: bold; color: #333;">30€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 08:00</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_c47003bf13bbf744e1d927cdfab58047.setContent(html_e55dc19266df98c039d67a92a552e11e);
+            
+        
+
+        marker_cd3d8bc698021f5a5f219f1e29f833fd.bindPopup(popup_c47003bf13bbf744e1d927cdfab58047)
+        ;
+
+        
+    
+</script>
+</html>

@@ -1,100 +1,122 @@
 import dash_bootstrap_components as dbc
 from dash import html, dcc, dash_table
 import pandas as pd
+from functions.misc import *
 
 
-style_carousel = {'width': 'auto', 'justify': 'center', 'margin': '10px'}
-style_row = {'justify': 'center'}
-style_table_div = {'margin': '10px'}
-style_table = {"width": "100%", "overflowX": "auto",
-               'background-color': 'rgba(255, 255, 0, 0.5)', "color": "black"}
-style_title_info = {'margin': '0px'}
-style_header = {'fontWeight': 'bold', 'textAlign': 'center'}
-style_cell = {'textAlign': 'left'}
-style_card = {"font-size": "80%", "height": "100%"}
-style_header = {'fontWeight': 'bold',
-                'textAlign': 'center', 'padding-bottom': '20px'}
+styles_css = read_styles()
 
 
 def article_card(article):
-    card = dbc.Col([dbc.Card(id=str(article["url_ref"]), children=[
-        dbc.CardHeader(article["time_posted"]),
-        dbc.CardBody(
-            [
-                    dbc.Row([html.H4(article["name"], className="card-title")]),
-                    dbc.Row([html.H3(article["location"])]),
-                    dbc.Row([dcc.Link(article["url_ref"])]),
-                    dbc.Row([html.Img(src=article["img"])])
+    card = dbc.Col([
+        dbc.Card(id=str(article["location_description"]), children=[
+            dbc.CardHeader(article["time_posted"]),
+            dbc.CardBody([
+                html.A([
+                    dbc.Row([
+                        dbc.Col([
+                            dbc.Row([html.Img(src=article["img"])])
+                        ], width=3),
+                        dbc.Col([
+                            dbc.Row(
+                                [html.H4(article["name"], className="card-title")]),
+                            dbc.Row([html.H6(article["description"])]),
+                            dbc.Row([html.H3(article["price"])]),
+                        ], width=9),
                     ])
-    ])
-    ])
+
+                ], href=article["url_ref"], target="_blank")]),
+        ])
+    ], width=12, style=styles_css["article_card"])
 
     return card
 
 
 def anzeigen_search():
     search_div = dbc.Card([
+        
         dbc.Col([
+            
             dbc.Row([
-                html.H5('Search Anzeigen')
-            ], style=style_header),
+                html.H6('Search Anzeigen')
+            ], style=styles_css["style_row_search"]),
+            
             dbc.Row([
+                
                 dbc.Col([
                     dbc.Row([
-                        dbc.Col([
-                            dbc.Button(
-                                "+", color="primary",  id='add_search_phrase_btn', n_clicks=0, style={'font-size': '70%'})
-                        ], width=6),
-                        dbc.Col([
-                            dbc.Button(
-                                "-", color="primary",  id='rm_search_phrase_btn', n_clicks=0, style={'font-size': '70%'})
-                        ], width=6)
-                    ], style={'width': 'auto', 'justify': 'center', 'margin-left': '20px', 'margin-right': '20px', 'height': '50px'}),
-                ], width=4),
+                            dbc.ButtonGroup([
+                                dbc.Button([html.I(className="bi bi-plus-square", style=styles_css["icon_size_add_remove"])],
+                                           id='add_search_phrase_btn', n_clicks=0, style=styles_css["buttons_add_remove"]),
+                                dbc.Button([html.I(className="bi bi-dash-square-dotted", style=styles_css["icon_size_add_remove"])],
+                                           id='rm_search_phrase_btn', n_clicks=0, style=styles_css["buttons_add_remove"])
+                            ], style=styles_css["buttons_add_remove_group"])
+                ]),
+                ], width=5),
                 dbc.Col([
                     dbc.Row(id='search_inputs_div', children=[
-                        dbc.Row([dcc.Input(id='search_phrase_input', placeholder='Enter Search Phrase', style={
-                            'margin-top': '10px', 'margin-bottom': '10px', 'height': '30px'})])
+                        dbc.Row([dcc.Input(
+                            id='search_phrase_input', placeholder='Enter Search Phrase', style=styles_css["input_add_remove"])])
                     ], style={'height': '100%'}),
-                ], width=8)
-            ], style=style_header),
-            dbc.Row([dbc.Col([html.H5('Price Range', style={'text-align': "left"})], width=6),
+                ], width=7)
+                
+            ], style=styles_css["style_row_search"]),
+            
+            dbc.Row([
+                
+                dbc.Col([html.P('Price Range', style=styles_css["title_search"])], width=3),
                      dbc.Col([
                          dbc.Row([
-                                dbc.Col([
-                                    dcc.Input(id='price_range_min_input', placeholder='Enter Min', style={
-                                    'margin-top': '10px', 'margin-bottom': '10px', 'height': '30px','width':'80%'})
-                                    ]),.
-                                dbc.Col([
-                                    dcc.Input(id='price_range_max_input', placeholder='Enter Max', style={
-                                    'margin-top': '10px', 'margin-bottom': '10px', 'height': '30px', 'width':'80%'})                            
-                                    ])
+                             dbc.Col([
+                                 dcc.Input(
+                                     id='price_range_min_input', placeholder='Enter Min', style=styles_css["input_prices"])
+                             ]),
+                             dbc.Col([
+                                 dcc.Input(
+                                     id='price_range_max_input', placeholder='Enter Max', style=styles_css["input_prices"])
+                             ])
                          ])
-                     ], width=6)
-                     ], style=style_header),
+                     ], width=9)
+                     
+            ], style=styles_css["style_row_search"]),
             
-            dbc.Row([dbc.Col([html.H5('Search Radius Around Route', style={'text-align': "left"})], width=6),
+            dbc.Row([
+                
+                dbc.Col([html.P('Search Page Limit', style=styles_css["title_search"])], width=6),
+                     dbc.Col([
+                         dcc.Dropdown(id='dropdown_page_limit', options=[str(i) for i in range(
+                             1, 101)], value=str(40), style={'width': '100%'}),
+                     ], width=6)
+                     
+            ], style=styles_css["style_row_search"]),
+            
+            dbc.Row([
+                
+                dbc.Button("General Search", color="primary", n_clicks=0, className="me-1",
+                    id='start_general_search_btn', style=styles_css["button_main"])
+                
+                ],style=styles_css["style_row_search"]),
+            
+            dbc.Row([
+                
+                dbc.Col([html.P('Search Radius Around Route', style=styles_css["title_search"])], width=6),
                      dbc.Col([
                          dcc.Dropdown(id='dropdown_radius', options=[
-                                      '0 km', '5 km', '10 km', '20 km', '30 km', '40 km', '50 km'], value='0 km', style={'width': '100%'}),
+                                      '0 km', '5 km', '10 km', '20 km', '30 km', '40 km', '50 km', '60 km', '70 km', '80 km', '90 km', '100 km', '110 km', '120 km', '130 km', '140 km',  '150 km'], value='0 km', style={'width': '100%'}),
                      ], width=6)
-                     ], style=style_header),
-            dbc.Row([dbc.Col([html.H5('Search Page Limit', style={'text-align': "left"})], width=6),
-                     dbc.Col([
-                         dcc.Dropdown(id='dropdown_page_limit', options=[str(i) for i in range(1,101)], value='100', style={'width': '100%'}),
-                     ], width=6)
-                     ], style=style_header),
-            dbc.Row([dbc.Button("Start Route Search", color="primary", n_clicks=0, className="me-1",
-                                id='start_search_btn')],style={'margin-bottom':'10px'}),
-            dbc.Row([dbc.Button("Load Previous Search Results", color="primary", n_clicks=0, className="me-1",
-                    id='load_search_results_btn')]),
-        ], style={'padding': '30px', 'height':'100%'})
-    ], style={'margin': '20px'})
+                     
+            ], style=styles_css["style_row_search"]),
+
+            dbc.Row([
+                dbc.Button("Search Along Route", color="primary", n_clicks=0,className="me-1", id='start_search_btn', style=styles_css["button_main"])
+                ], style=styles_css["style_row_search"]),
+        ], style=styles_css["search_card_contents"])
+    ], style=styles_css["search_card"])
 
     return search_div
 
 
 def input_search_div(id_search_input):
-    search_input = dbc.Row([dcc.Input(id=id_search_input, placeholder='Enter Search Phrase', style={
-        'margin-top': '10px', 'margin-bottom': '10px', 'height': '30px'})])
+    search_input = dbc.Row([dcc.Input(
+        id=id_search_input, placeholder='Enter Search Phrase', style=styles_css["input_add_remove"])])
     return search_input

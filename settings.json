@@ -1,0 +1,12 @@
+{
+    "route_folder":"./storage/route/",
+    "route_file":"route.json",
+    "map_folder":"./storage/maps/",
+    "styles":"./elements/styles.json",
+    "empty_map": "map_og.html",
+    "map_with_route": "map_route.html",
+    "map_with_route_anzeigen": "map_route_adds.html",
+    "search_data_folder":"./storage/search_data/",
+    "general_search_results": "anzeigen_general.json",
+    "along_route_filtered_results": "anzeigen_route.json"
+}

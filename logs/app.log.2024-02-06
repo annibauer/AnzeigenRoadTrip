@@ -1,0 +1,45 @@
+2024-02-06 06:54:26,495 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 07:04:24,095 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 07:06:54,558 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 07:15:00,474 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 07:15:42,636 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 07:19:19,102 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 07:21:27,032 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 16:30:45,862 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fb671facc40>, 'Connection to nominatim.openstreetmap.org timed out. (connect timeout=1)')': /search?q=Berlin&format=json&limit=1
+2024-02-06 18:04:48,316 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:09:05,994 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:26:38,383 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:28:28,182 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:31:45,315 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:33:00,553 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:40:58,288 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:41:34,097 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:42:16,257 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:43:26,454 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:44:55,079 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-06 18:45:27,229 - ERROR - Status code Unknown from http://ipinfo.io/json: ERROR - HTTPConnectionPool(host='ipinfo.io', port=80): Read timed out. (read timeout=5.0)
+2024-02-06 18:55:52,354 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=33142+B%C3%BCren&format=json&limit=1
+2024-02-06 18:56:25,913 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=94065+Waldkirchen&format=json&limit=1
+2024-02-06 18:56:29,162 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=10115+Mitte&format=json&limit=1
+2024-02-06 18:56:57,268 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=71570+Oppenweiler&format=json&limit=1
+2024-02-06 19:00:03,269 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=58119+Hagen&format=json&limit=1
+2024-02-06 19:00:23,758 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=40627+Unterbach&format=json&limit=1
+2024-02-06 19:00:45,975 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=59174+Kamen&format=json&limit=1
