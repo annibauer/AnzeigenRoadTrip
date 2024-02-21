@@ -1,5 +1,5 @@
 import dash
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc, Input, Output, State
 import dash_bootstrap_components as dbc
 from functions.logger import configure_logger
 from elements.article import *
@@ -27,13 +27,14 @@ logger.addHandler(handler)
 # Set up main app 
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.LUX, dbc.icons.BOOTSTRAP], suppress_callback_exceptions=True)
 
-navbar = create_navbar(dash.page_registry.values())
+# navbar = create_navbar(dash.page_registry.values())
 
 # set main page layout
 app.layout = html.Div([
-    navbar,
+    #navbar,
     dash.page_container
 ])
+
 
 if __name__ == '__main__':
     app.run(debug=True)

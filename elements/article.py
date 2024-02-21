@@ -27,19 +27,17 @@ def article_card(article):
 
                 ], href=article["url_ref"], target="_blank")]),
         ])
-    ], width=12, style=styles_css["article_card"])
+    ], width=6, style=styles_css["article_card"])
 
     return card
 
 
 def anzeigen_search():
     search_div = dbc.Card([
-        
         dbc.Col([
-            
             dbc.Row([
                 html.H6('Search Anzeigen')
-            ], style=styles_css["style_row_search"]),
+            ], style=styles_css["style_row_title"]),
             
             dbc.Row([
                 
@@ -110,6 +108,9 @@ def anzeigen_search():
             dbc.Row([
                 dbc.Button("Search Along Route", color="primary", n_clicks=0,className="me-1", id='start_search_btn', style=styles_css["button_main"])
                 ], style=styles_css["style_row_search"]),
+            dbc.Row([
+                html.Div(id="loading-calculate-route")
+            ])
         ], style=styles_css["search_card_contents"])
     ], style=styles_css["search_card"])
 

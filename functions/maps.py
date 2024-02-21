@@ -198,9 +198,20 @@ def format_route_points_string(start_loc_input, waypoints, end_loc_input):
     complete_route.append(end_loc_input)
     route_text = ''
     for stop in complete_route:
-        route_text = route_text +  "-> " + str(stop)
+        if(route_text == ''):
+            route_text = str(stop)
+        else:
+            route_text = route_text +  "-> " + str(stop)
+            
         
     return complete_route, route_text
+
+def format_search_phrases_list(search_phrases_list):
+    text = ''
+    for phrase in search_phrases_list:
+        text = text + "  " + phrase
+        
+    return text
             
             
 def create_empty_map(settings):

@@ -16,11 +16,16 @@ from elements.route import route_div, input_route_div, route_map
 from functions.maps import *
 from functions.anzeigen import *
 from elements.maps import *
+from elements.main_page import *
 import geocoder
 import pandas as pd
 from functions.misc import *
 from functions.feature_functions import *
 from elements.route import *
+
+
+
+styles_css = read_styles()
 
 dash.register_page(__name__, path='/')
 
@@ -29,27 +34,44 @@ settings = read_settings()
 json_route, route_anzeigen_json, anzeigen_general_json, html_map_route, html_map_route_anzeigen = compound_paths(settings)
 
 global m
+global ROUTE_LOADED
+global SEARCH_ALONG_ROUTE_DISABLED
 
 m = create_empty_map(settings)
+ROUTE_LOADED = False
+SEARCH_ALONG_ROUTE_DISABLED = True
 
 layout = dbc.Col([
     dbc.Row([
         dbc.Col([
-                complete_search_box()
-            ], width=4),
+            dbc.Row([
+            dbc.Button(
+                "Search Settings",
+                id="horizontal-collapse-button",
+                className="mb-3",
+                color="primary",
+                n_clicks=0,
+                style=styles_css["search_settings_btn"]
+            )]),
+            dbc.Row([
+                dcc.Loading(
+                    id="loading-general",
+                    type="default",
+                    children=html.Div(id="loading-output-general"),
+                ),
+            ], style={'margin':"10px"})
+        ])
+        ], style={"margin":"10px"}),
+    dbc.Row([
+        dbc.Col([side_bar_collapsable()], id="collapsable_col", style={"display":"none"}),
         dbc.Col([
             dbc.Row([route_map()]),
-            dbc.Row([load_previous_searches_div()]),
-            dbc.Row([
-                  loading_element()
-            ])
-        ], width=8)
-
-    ], style=styles_css["main_layout_rows"]),    
+            ], id='content_col', width=12)
+        ],style={"margin":"10px"}),
     dbc.Row([
         dbc.Col(id='table_anzeigen', children=[
-            ], width=12)
-    ], style=styles_css["main_layout_rows"])
+            ])
+        ],style={"margin":"10px"})
 ],style={'textAlign': 'center', 'padding':'10px','margin':'20px'})
 
 
@@ -67,6 +89,10 @@ layout = dbc.Col([
     Output("search_inputs_div", "children"),
     Output("map_route_div", "children"),
     Output("table_anzeigen", "children"),
+    Output('loading-search-route', 'children'),
+    Output('loading-calculate-route', 'children'),
+    Output('loading-general', 'children'),
+    Output('start_search_btn', 'disabled')
     ], [Input("calculate_route_btn", "n_clicks"),
         Input("add_waitpoint_btn", "n_clicks"),
         Input("rm_waitpoint_btn", "n_clicks"),
@@ -89,21 +115,50 @@ layout = dbc.Col([
 )
 def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase, n_load_route, n_load_search_results, n_load_general_search_results, start_loc_input, end_loc_input, waypoint_div, search_phrases_div, search_radius, page_limit, price_min, price_max, table_anzeigen_div):
     global m
+    global ROUTE_LOADED
+    global SEARCH_ALONG_ROUTE_DISABLED
+    
     map_div = create_map_div(settings)
     
+    loading_output_calculate_route = []
+    loading_output_search_route = []
+    loading_general = []
     search_phrases_div, n_add_searchphrase, n_rm_searchphrase = trigger_format_dynamic_inputs(n_add_searchphrase ,n_rm_searchphrase, search_phrases_div, input_search_div, "searchphrase")
     waypoint_div, n_add_waypoints, n_rm_waypoints = trigger_format_dynamic_inputs(n_add_waypoints ,n_rm_waypoints, waypoint_div, input_route_div, "way_point")
           
         # calculate button pressed
     if n_calculate_route != 0: 
         logging.info("Calculate route button pressed.")
-        map_div, m = calculate_route(geolocator, start_loc_input, end_loc_input,waypoint_div,json_route ,html_map_route)
+        map_div, m, route_text = calculate_route(geolocator, start_loc_input, end_loc_input,waypoint_div,json_route ,html_map_route)
+        loading_output_calculate_route = html.Div([
+            html.Div("Route Loaded: {}".format(route_text), style={'color':'green'})
+        ])
+        loading_general = html.Div([
+            html.Div()
+        ])
+        
+        ROUTE_LOADED = True
+        SEARCH_ALONG_ROUTE_DISABLED = not ROUTE_LOADED
         n_calculate_route = 0
+
         
     elif n_start_search != 0:
         logging.info("Route search button pressed.")
+
         if(os.path.exists(json_route)):
-            table_anzeigen_div, map_div, m = start_search_anzeigen(geolocator, m, search_phrases_div, page_limit, price_min, price_max, search_radius, html_map_route_anzeigen,json_route, route_anzeigen_json, anzeigen_general_json)
+            table_anzeigen_div, map_div, m, search_phrases = start_search_anzeigen(geolocator, m, search_phrases_div, page_limit, price_min, price_max, search_radius, html_map_route_anzeigen,json_route, route_anzeigen_json, anzeigen_general_json)
+        
+        loading_output_search_route = html.Div([
+            dbc.Col([
+                dbc.Row([html.Div("Results Along Route Loaded:  Radius {radius} km  Page Limit {page_limit}".format(radius=search_radius, page_limit=page_limit), style={'color':'green'})]),
+                dbc.Row([html.Div("Search Terms:  {search_term}".format(search_term=search_phrases), style={'color':'green'})])
+            ])
+            
+        ])
+        loading_general = html.Div([
+            html.Div()
+        ])
+        
         n_start_search = 0
         
     # load search results button pressed
@@ -116,6 +171,9 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
     # calculate button pressed
     elif n_load_general_search_results != 0: 
         logging.info("Load general search button pressed.")
+        loading_output_search_route = html.Div([
+            dcc.Loading(type="circle", fullscreen=True),
+        ])
         if (os.path.exists(anzeigen_general_json) and os.path.exists(json_route)):
             table_anzeigen_div, map_div, m = load_general_search(json_route, html_map_route, search_radius, html_map_route_anzeigen, route_anzeigen_json, anzeigen_general_json)
         n_load_general_search_results = 0
@@ -128,11 +186,27 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
     
   
               
-    return [n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase,n_load_route, n_load_search_results, n_load_general_search_results, waypoint_div, search_phrases_div, map_div,  table_anzeigen_div]
+    return [n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase,n_load_route, n_load_search_results, n_load_general_search_results, waypoint_div, search_phrases_div, map_div,  table_anzeigen_div, loading_output_calculate_route, loading_output_search_route, loading_general, SEARCH_ALONG_ROUTE_DISABLED]
     
     
-@callback(Output("loading-output-1", "children"), Input("load_general_search_results_btn", "n_clicks"))
-def input_triggers_spinner(value):
-    print("Hello")
-    time.sleep(1)
-    return value
+
+@callback(
+    Output("horizontal-collapse", "is_open"),
+    Output("collapsable_col", "style"),
+    Output("content_col", "width"),
+    [Input("horizontal-collapse-button", "n_clicks")],
+    [State("horizontal-collapse", "is_open"),
+        State("collapsable_col", "style"),
+        State("content_col", "width")],
+)
+def toggle_collapse(n, is_open, width_collapsable, width_content):
+    if n:
+        if(is_open):
+            width_content = 12
+            width_collapsable = {"display":"none"}
+        else:
+            width_content = 8
+            width_collapsable = {"display":"block"}
+        return not is_open, width_collapsable, width_content
+    return is_open, width_collapsable, width_content
+

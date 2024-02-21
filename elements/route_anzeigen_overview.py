@@ -16,7 +16,7 @@ def load_previous_searches_div():
         dbc.Button("Previous Route", outline=True, color="primary", n_clicks=0, id='load_route_btn', style=styles_css["button_load"]),
         dbc.Button("Previous Route Article Results", outline=True, color="primary", n_clicks=0,  id='load_search_results_btn', style=styles_css["button_load"]),
         dbc.Button("Previous Search Phrase", outline=True, color="primary", n_clicks=0, id='load_general_search_results_btn', style=styles_css["button_load"]),
-        ], style=styles_css["load"])
+        ], style=styles_css["load"], vertical=True)
                     ],style=styles_css["load_card"])
     return div
 
@@ -24,10 +24,11 @@ def load_previous_searches_div():
 def complete_search_box():  
     search_div = dbc.Col([
         dbc.Row([
+            route_div() 
+        ]),
+        dbc.Row([
             anzeigen_search(),
             ]),
-        dbc.Row([
-            route_div() 
-        ])
+
     ])
     return search_div

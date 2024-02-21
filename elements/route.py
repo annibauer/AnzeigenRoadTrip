@@ -13,7 +13,7 @@ def route_div():
         dbc.Col([
             dbc.Row([
                 html.H6('Select Route')
-            ], style=styles_css["style_row_search"]),
+            ], style=styles_css["style_row_title"]),
             dbc.Row([dbc.Col([html.P('Start Point', style=styles_css["title_search"])], width=6),
                      dbc.Col([
                          dcc.Input(id='start_loc_input', value=geocoder.ip(
@@ -48,11 +48,12 @@ def route_div():
                 ], width=6)
             ], style=styles_css["style_row_search"]),
             dbc.Row([
-
                 dbc.Button("Calculate Route", color="primary", n_clicks=0,  className="me-1",
                            id='calculate_route_btn', style=styles_css["button_main"])
             ], style=styles_css["style_row_search"]),
-
+            dbc.Row([
+                html.Div(id="loading-search-route")
+            ])
         ], style=styles_css["search_card_contents"]),
     ], style=styles_css["search_card"])
 
@@ -60,9 +61,9 @@ def route_div():
 
 
 def route_map():
-    div = dbc.Card([
+    div = dbc.Card(id="map_card",children=[
         dbc.Row(id='map_route_div', children=[])
-    ], style=styles_css["map"])
+    ], style=styles_css["map_wide"])
     return div
 
 

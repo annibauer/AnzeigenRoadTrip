@@ -1,0 +1,5 @@
+2024-02-11 20:09:41,105 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-11 20:21:24,564 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-11 20:22:16,191 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=53894+Mechernich&format=json&limit=1

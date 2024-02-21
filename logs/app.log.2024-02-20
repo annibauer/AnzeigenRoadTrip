@@ -1,0 +1,161 @@
+2024-02-20 15:47:20,376 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 15:48:10,272 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 15:59:03,630 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 16:00:56,774 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 16:01:57,066 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 16:40:16,533 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:12:33,756 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:12:40,705 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:12:46,499 - ERROR - Status code Unknown from http://ipinfo.io/json: ERROR - HTTPConnectionPool(host='ipinfo.io', port=80): Read timed out. (read timeout=5.0)
+2024-02-20 17:16:31,390 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:18:09,820 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:23:15,564 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:25:12,290 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:26:08,201 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:28:18,887 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:29:57,229 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:32:14,581 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:33:01,262 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:33:34,443 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:34:51,653 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:36:20,134 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:36:37,436 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:37:37,524 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:38:08,174 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:38:26,029 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:41:30,457 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:43:54,784 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:50:21,909 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 17:59:48,156 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:00:51,955 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:03:04,922 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:05:09,706 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:05:58,792 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:08:03,246 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:11:09,062 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:14:49,692 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:20:38,503 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:22:30,960 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:23:04,420 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:25:35,182 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:26:23,642 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:33:53,543 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:34:34,706 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:35:34,904 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:36:53,832 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:41:11,606 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:45:17,265 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 18:59:58,239 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:00:10,176 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:05:17,379 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:06:29,251 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:06:56,441 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:07:36,310 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:09:14,902 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:11:24,710 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:11:50,570 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:12:20,490 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:18:21,362 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:20:58,999 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:21:33,103 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:21:49,676 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:24:14,938 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:27:18,604 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:28:08,733 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:29:25,991 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:30:46,776 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:34:21,245 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:35:09,415 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:35:53,939 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:36:19,237 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:36:51,619 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:37:19,990 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 19:39:12,322 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:23:28,363 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:24:21,449 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:25:40,128 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:28:26,923 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:33:10,989 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:40:43,431 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:50:20,684 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-20 23:58:13,440 - INFO - Dash is running on http://127.0.0.1:8050/
+

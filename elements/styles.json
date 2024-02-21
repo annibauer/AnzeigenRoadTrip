@@ -14,6 +14,12 @@
         "fontWeight": "bold",
         "textAlign": "center"
     },
+    "style_row_title":{
+        "fontWeight": "bold",
+        "textAlign": "center",
+        "margin-top":"10px",
+        "margin-bottom":"10px"
+    },
     "input_add_remove": {
         "margin-top": "10px",
         "margin-bottom": "10px",
@@ -30,10 +36,12 @@
         "font-size":"70%"
     },
     "search_card": {
-        "padding": "20px"
+        "margin-bottom": "20px",
+        "padding-left": "20px",
+        "padding-right":"20px"
     },
     "search_card_contents": {
-        "margin":"20px"
+        "margin":"10px"
     },
     "button_main": {
         "margin":"10px 0px 10px 0px"
@@ -41,8 +49,12 @@
     "button_load": {
         "margin":"0px"
     },
-    "map": {
-        "padding": "20px"
+    "map_wide": {
+        "padding": "20px",
+        "width":"100%"
+    },
+    "map_narrow": {
+        "margin-left":"430px"
     },
     "overview_cards": {
         "padding": "20px"
@@ -68,5 +80,8 @@
         "padding":"20px"
     },
     "load_card":{
+    },
+    "search_settings_btn":{
+        "width":"100%"
     }
 }
