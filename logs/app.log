@@ -125,3 +125,90 @@
 2024-02-21 11:32:26,512 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=%5B%2724616%27%2C+%27Borstel%27%5D&format=json&limit=1
 2024-02-21 11:32:48,794 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=24616+Borstel+bei+Neum%C3%BCnster&format=json&limit=1
 2024-02-21 11:33:22,131 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=51429+Bergisch+Gladbach&format=json&limit=1
+2024-02-21 14:25:51,553 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 14:29:12,527 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 14:32:21,490 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 14:44:21,694 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 14:47:04,449 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 14:48:07,191 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=44894+Bochum-%E2%80%8BOst&format=json&limit=1
+2024-02-21 14:48:30,729 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=01157+Cotta&format=json&limit=1
+2024-02-21 14:48:48,821 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=71665+Vaihingen+an+der+Enz&format=json&limit=1
+2024-02-21 14:48:51,509 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=29633+Munster&format=json&limit=1
+2024-02-21 14:49:17,896 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=74336+Brackenheim&format=json&limit=1
+2024-02-21 14:49:39,592 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=78600+Kolbingen&format=json&limit=1
+2024-02-21 14:50:08,377 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=89415+Lauingen+a.d.+Donau&format=json&limit=1
+2024-02-21 14:51:00,376 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=67069+Ludwigshafen&format=json&limit=1
+2024-02-21 14:52:28,848 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=58135+Hagen&format=json&limit=1
+2024-02-21 14:52:29,909 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=58135+Hagen&format=json&limit=1
+2024-02-21 14:52:31,891 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=59174+Kamen&format=json&limit=1
+2024-02-21 14:52:45,046 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=42853+Remscheid&format=json&limit=1
+2024-02-21 14:53:56,050 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=67729+Sippersfeld&format=json&limit=1
+2024-02-21 14:56:25,328 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 14:57:41,663 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:01:47,542 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:03:22,855 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:06:06,720 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:13:32,825 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:18:30,747 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:22:05,696 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:26:39,817 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:27:57,808 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:29:16,414 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:32:11,157 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:32:55,137 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:35:53,373 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:38:17,591 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:41:21,169 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:44:56,006 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 15:57:08,391 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:00:21,023 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:03:18,326 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:07:34,383 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:09:23,913 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:13:09,355 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:16:24,935 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:19:30,090 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:25:04,922 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:27:44,485 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:29:38,802 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:31:42,673 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:32:27,014 - INFO - Dash is running on http://127.0.0.1:8050/
+
+2024-02-21 16:43:45,490 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=01099+Neustadt&format=json&limit=1
+2024-02-21 16:43:53,304 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=13353+Wedding&format=json&limit=1
+2024-02-21 16:44:27,802 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=45527+Hattingen&format=json&limit=1
+2024-02-21 16:44:54,885 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=45475+M%C3%BClheim+%28Ruhr%29&format=json&limit=1

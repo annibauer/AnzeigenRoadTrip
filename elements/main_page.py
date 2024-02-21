@@ -29,7 +29,7 @@ def side_bar_collapsable():
                     html.Div(
                         dbc.Col([
                             dbc.Row([complete_search_box()]),
-                            dbc.Row([load_previous_searches_div()])
+                            dbc.Row([dbc.Button("Load Previous", id="open", n_clicks=0)])
                         ]),
                         style={"width": "400px"},
                     ),

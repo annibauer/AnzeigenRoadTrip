@@ -52,9 +52,9 @@ def start_search_anzeigen(geolocator, m ,search_phrases_div, page_limit, price_m
     return table_anzeigen_div, map_div, m, search_phrases_text
 
 def load_search_anzeigen_along_route(m, html_map_route_anzeigen, route_anzeigen_json):
-    table_anzeigen_div, map_div, m = display_filtered_anzeigen_map(m, html_map_route_anzeigen, route_anzeigen_json)
+    table_anzeigen_div, map_div, m, count_articles_on_route = display_filtered_anzeigen_map(m, html_map_route_anzeigen, route_anzeigen_json)
     print("Loading Done")
-    return table_anzeigen_div, map_div, m
+    return table_anzeigen_div, map_div, m, count_articles_on_route
 
 def load_general_search(json_route, html_map_route, search_radius, html_map_route_anzeigen, route_anzeigen_json, anzeigen_general_json):
     
@@ -62,9 +62,9 @@ def load_general_search(json_route, html_map_route, search_radius, html_map_rout
     location_points = route_df[['latitude','longitude']].values.tolist()
     if(len(location_points)!= 0):  
         map_div, m = generate_map_route(location_points, html_map_route)
-        table_anzeigen_div, map_div, m  = display_filtered_anzeigen_map(m, html_map_route_anzeigen, anzeigen_general_json)
+        table_anzeigen_div, map_div, m , count_articles_on_route = display_filtered_anzeigen_map(m, html_map_route_anzeigen, anzeigen_general_json)
 
-    return table_anzeigen_div, map_div, m
+    return table_anzeigen_div, map_div, m, count_articles_on_route
 
 def load_route(json_route, html_map_route):
     route_df = pd.read_json(json_route)

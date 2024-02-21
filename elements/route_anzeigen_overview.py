@@ -32,3 +32,19 @@ def complete_search_box():
 
     ])
     return search_div
+
+
+def modal_load_previous_search():
+    modal = html.Div(
+        [
+            dbc.Modal(
+                [
+                    dbc.ModalHeader(dbc.ModalTitle("Load Previous Searches")),
+                    dbc.ModalBody(load_previous_searches_div())
+                ],
+                id="modal",
+                is_open=False,
+            ),
+        ]
+    )
+    return modal

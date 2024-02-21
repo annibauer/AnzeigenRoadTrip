@@ -66,12 +66,14 @@ layout = dbc.Col([
         dbc.Col([side_bar_collapsable()], id="collapsable_col", style={"display":"none"}),
         dbc.Col([
             dbc.Row([route_map()]),
+            dbc.Row([modal_load_previous_search()])
             ], id='content_col', width=12)
-        ],style={"margin":"10px"}),
-    dbc.Row([
-        dbc.Col(id='table_anzeigen', children=[
-            ])
-        ],style={"margin":"10px"})
+        ],style={"margin":"10px", "height":"100%"}),
+    dbc.Row([],style={"height":"50px"}),
+    dbc.Row([html.H5(id="results_anzeigen", children=[], style={"color":"#f06b05"})], style={"margin":"30px"}),
+    dbc.Row([dbc.Col(id='table_anzeigen', children=[], style={"margin":"20px"})
+    ])
+    
 ],style={'textAlign': 'center', 'padding':'10px','margin':'20px'})
 
 
@@ -89,10 +91,14 @@ layout = dbc.Col([
     Output("search_inputs_div", "children"),
     Output("map_route_div", "children"),
     Output("table_anzeigen", "children"),
+    Output("results_anzeigen", "children"),
     Output('loading-search-route', 'children'),
     Output('loading-calculate-route', 'children'),
     Output('loading-general', 'children'),
-    Output('start_search_btn', 'disabled')
+    Output('start_search_btn', 'disabled'),
+    Output("horizontal-collapse", "is_open"),
+    Output("collapsable_col", "style"),
+    Output("content_col", "width"),
     ], [Input("calculate_route_btn", "n_clicks"),
         Input("add_waitpoint_btn", "n_clicks"),
         Input("rm_waitpoint_btn", "n_clicks"),
@@ -110,10 +116,14 @@ layout = dbc.Col([
         State("dropdown_page_limit","value"),
         State("price_range_min_input","value"),
         State("price_range_max_input","value"),
-        State("table_anzeigen","children")
+        State("table_anzeigen","children"),
+        State("horizontal-collapse", "is_open"),
+        State("collapsable_col", "style"),
+        State("content_col", "width"),
+        State("results_anzeigen", "children")
         ], 
 )
-def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase, n_load_route, n_load_search_results, n_load_general_search_results, start_loc_input, end_loc_input, waypoint_div, search_phrases_div, search_radius, page_limit, price_min, price_max, table_anzeigen_div):
+def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase, n_load_route, n_load_search_results, n_load_general_search_results, start_loc_input, end_loc_input, waypoint_div, search_phrases_div, search_radius, page_limit, price_min, price_max, table_anzeigen_div, is_open, width_collapsable, width_content, anzeigen_results_info):
     global m
     global ROUTE_LOADED
     global SEARCH_ALONG_ROUTE_DISABLED
@@ -146,8 +156,10 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
         logging.info("Route search button pressed.")
 
         if(os.path.exists(json_route)):
-            table_anzeigen_div, map_div, m, search_phrases = start_search_anzeigen(geolocator, m, search_phrases_div, page_limit, price_min, price_max, search_radius, html_map_route_anzeigen,json_route, route_anzeigen_json, anzeigen_general_json)
-        
+            table_anzeigen_div, map_div, m, search_phrases, count_articles_on_route = start_search_anzeigen(geolocator, m, search_phrases_div, page_limit, price_min, price_max, search_radius, html_map_route_anzeigen,json_route, route_anzeigen_json, anzeigen_general_json)
+       
+        anzeigen_results_info = "{} Anzeigen found on route".format(count_articles_on_route)
+
         loading_output_search_route = html.Div([
             dbc.Col([
                 dbc.Row([html.Div("Results Along Route Loaded:  Radius {radius} km  Page Limit {page_limit}".format(radius=search_radius, page_limit=page_limit), style={'color':'green'})]),
@@ -159,13 +171,24 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
             html.Div()
         ])
         
+        if(is_open):
+            width_content = 12
+            width_collapsable = {"display":"none"}
+            is_open = not is_open
+        else:
+            width_content = 8
+            width_collapsable = {"display":"block"}
+            is_open = not is_open
+            
+
         n_start_search = 0
         
     # load search results button pressed
     elif n_load_search_results != 0: 
         logging.info("Load previous route search button pressed.")
         if os.path.exists(route_anzeigen_json):
-            table_anzeigen_div, map_div, m = load_search_anzeigen_along_route(m, html_map_route_anzeigen, route_anzeigen_json)
+            table_anzeigen_div, map_div, m, count_articles_on_route = load_search_anzeigen_along_route(m, html_map_route_anzeigen, route_anzeigen_json)
+            anzeigen_results_info = "{} Anzeigen found on route ".format(count_articles_on_route)
         n_load_search_results = 0
         
     # calculate button pressed
@@ -175,38 +198,60 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
             dcc.Loading(type="circle", fullscreen=True),
         ])
         if (os.path.exists(anzeigen_general_json) and os.path.exists(json_route)):
-            table_anzeigen_div, map_div, m = load_general_search(json_route, html_map_route, search_radius, html_map_route_anzeigen, route_anzeigen_json, anzeigen_general_json)
+            table_anzeigen_div, map_div, m, count_articles_on_route = load_general_search(json_route, html_map_route, search_radius, html_map_route_anzeigen, route_anzeigen_json, anzeigen_general_json)
+            anzeigen_results_info = "{} Anzeigen found in Deutschland ".format(count_articles_on_route)
+            
         n_load_general_search_results = 0
         
     elif n_load_route != 0:
         logging.info("Load previous route pressed.")
         if(os.path.exists(json_route)):
             map_div, m  = load_route(json_route, html_map_route)
+            
+        ROUTE_LOADED = True
+        SEARCH_ALONG_ROUTE_DISABLED = not ROUTE_LOADED
         n_load_route = 0
     
   
               
-    return [n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase,n_load_route, n_load_search_results, n_load_general_search_results, waypoint_div, search_phrases_div, map_div,  table_anzeigen_div, loading_output_calculate_route, loading_output_search_route, loading_general, SEARCH_ALONG_ROUTE_DISABLED]
+    return [n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase,n_load_route, n_load_search_results, n_load_general_search_results, waypoint_div, search_phrases_div, map_div,  table_anzeigen_div, anzeigen_results_info, loading_output_calculate_route, loading_output_search_route, loading_general, SEARCH_ALONG_ROUTE_DISABLED, is_open, width_collapsable, width_content]
     
     
 
 @callback(
-    Output("horizontal-collapse", "is_open"),
-    Output("collapsable_col", "style"),
-    Output("content_col", "width"),
+    Output("horizontal-collapse", "is_open", allow_duplicate=True),
+    Output("collapsable_col", "style", allow_duplicate=True),
+    Output("content_col", "width", allow_duplicate=True),
     [Input("horizontal-collapse-button", "n_clicks")],
     [State("horizontal-collapse", "is_open"),
         State("collapsable_col", "style"),
         State("content_col", "width")],
+    prevent_initial_call=True
 )
 def toggle_collapse(n, is_open, width_collapsable, width_content):
+    
     if n:
         if(is_open):
             width_content = 12
-            width_collapsable = {"display":"none"}
+            width_collapsable = {"display":"none", "height":"100%"}
         else:
             width_content = 8
-            width_collapsable = {"display":"block"}
+            width_collapsable = {"display":"block","height":"100%"}
+            
         return not is_open, width_collapsable, width_content
+    
+
+    
     return is_open, width_collapsable, width_content
 
+
+
+@callback(
+    Output("modal", "is_open"),
+    [Input("open", "n_clicks")],
+    [State("modal", "is_open")],
+)
+def toggle_modal(n1, is_open):
+    if n1:
+        return not is_open
+    return is_open

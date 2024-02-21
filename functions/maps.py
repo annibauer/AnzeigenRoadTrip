@@ -94,7 +94,7 @@ def generate_map_route(location_points, html_file_name):
                 item_past = item
         
     m.save(html_file_name)
-    map_div =  html.Iframe(id='map', srcDoc=open(html_file_name, 'r').read(), width="100%", height="600px")
+    map_div =  html.Iframe(id='map', srcDoc=open(html_file_name, 'r').read(), width="100%", height="800px")
     return map_div, m
 
 def format_dynamic_inputs(div_element):
@@ -134,7 +134,7 @@ def add_location_anzeigen_markers_to_map(article_df_row, location_g, m ,html_fil
     markers.add_to(m)
 
     m.save(html_file_name)
-    map_div =  html.Iframe(id='map', srcDoc=open(html_file_name, 'r').read(), width="100%", height="600px")
+    map_div =  html.Iframe(id='map', srcDoc=open(html_file_name, 'r').read(), width="100%", height="800px")
     return map_div, m
 
 
@@ -187,8 +187,8 @@ def display_filtered_anzeigen_map(m, html_file_name, json_file):
         }
 
         map_div, m = add_location_anzeigen_markers_to_map(article, article_location, m ,html_file_name)
-    overview_anzeigen_div = generate_anzeigen_card_div(json_file)
-    return overview_anzeigen_div, map_div, m 
+    overview_anzeigen_div, count_articles_on_route = generate_anzeigen_card_div(json_file)
+    return overview_anzeigen_div, map_div, m , count_articles_on_route
             
 def format_route_points_string(start_loc_input, waypoints, end_loc_input):
     # complete route

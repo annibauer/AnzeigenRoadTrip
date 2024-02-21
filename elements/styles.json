@@ -44,7 +44,7 @@
         "margin":"10px"
     },
     "button_main": {
-        "margin":"10px 0px 10px 0px"
+        "margin":"20px 0px 20px 0px"
     },
     "button_load": {
         "margin":"0px"
@@ -57,13 +57,12 @@
         "margin-left":"430px"
     },
     "overview_cards": {
-        "padding": "20px"
     },
     "image_anzeigen_cards": {
         "width": "50%"
     },
     "article_card": {
-        "margin": "20px"
+        "margin":"20px"
     },
     "seach_inputs_overall": {
         "margin": "20px",

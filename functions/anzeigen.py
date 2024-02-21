@@ -187,13 +187,16 @@ def generate_anzeigen_card_div(json_anzeigen):
     list_of_cards = []
     articles_filtered_df = pd.read_json(json_anzeigen)
     
+    count_articles_on_route = articles_filtered_df.shape[0]
+    
     for index, article in articles_filtered_df.iterrows():
         list_of_cards.append(article_card(article))
     
-    div_overview = dbc.Card([
-        dbc.Row(children=list_of_cards)
+    div_overview = html.Div([
+        dbc.Col(children=list_of_cards)
     ], style=styles_css["overview_cards"])
-    return div_overview
+    return div_overview, count_articles_on_route
+
     
 
 
