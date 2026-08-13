@@ -1,40 +1,72 @@
-import dash
-from dash import Dash, html, dcc, Input, Output, State
-import dash_bootstrap_components as dbc
-from functions.logger import configure_logger
-from elements.article import *
-from elements.route import *
-from elements.main_page import create_navbar
-import logging
-from logging.handlers import TimedRotatingFileHandler
 import os
-from datetime import datetime
+import socket
 
-#logger = configure_logger()
+import dash
+from dash import Dash, html
+import dash_bootstrap_components as dbc
 
-# Create a logs directory if it doesn't exist
-log_dir = 'logs'
-os.makedirs(log_dir, exist_ok=True)
+from functions.logger import configure_logger
 
-# Configure logging to use TimedRotatingFileHandler
-log_filename = os.path.join(log_dir, 'app.log')
-handler = TimedRotatingFileHandler(log_filename, when='midnight', interval=1, backupCount=5)
-handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-
-logger = logging.getLogger()
-logger.addHandler(handler)
-
-# Set up main app 
-app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.LUX, dbc.icons.BOOTSTRAP], suppress_callback_exceptions=True)
-
-# navbar = create_navbar(dash.page_registry.values())
-
-# set main page layout
-app.layout = html.Div([
-    #navbar,
-    dash.page_container
-])
+logger = configure_logger()
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def get_available_port(preferred_port: int = 8050, host: str = "0.0.0.0") -> int:
+    for port in range(preferred_port, preferred_port + 100):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+                sock.bind((host, port))
+                return port
+        except OSError:
+            continue
+
+    raise OSError(f"No free port found starting from {preferred_port}")
+
+
+def get_runtime_settings() -> dict:
+    host = os.getenv("HOST", "0.0.0.0")
+    preferred_port = int(os.getenv("PORT", "8050"))
+    debug = os.getenv("DEBUG", "False").lower() in {"1", "true", "yes"}
+    port = get_available_port(preferred_port, host)
+
+    return {
+        "host": host,
+        "port": port,
+        "debug": debug,
+        "use_reloader": False,
+    }
+
+
+def create_app() -> Dash:
+    app = Dash(
+        __name__,
+        use_pages=True,
+        external_stylesheets=[dbc.themes.LUX, dbc.icons.BOOTSTRAP],
+        suppress_callback_exceptions=True,
+    )
+
+    app.layout = html.Div([
+        dash.page_container,
+    ])
+
+    return app
+
+
+app = create_app()
+logger.info("Starting ANZEIGEN app")
+
+if __name__ == "__main__":
+    runtime_settings = get_runtime_settings()
+
+    if runtime_settings["port"] != int(os.getenv("PORT", "8050")):
+        logger.warning(
+            "Port %s is in use; starting the app on %s instead.",
+            int(os.getenv("PORT", "8050")),
+            runtime_settings["port"],
+        )
+
+    app.run(
+        debug=runtime_settings["debug"],
+        host=runtime_settings["host"],
+        port=runtime_settings["port"],
+        use_reloader=runtime_settings["use_reloader"],
+    )

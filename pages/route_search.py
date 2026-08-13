@@ -72,9 +72,71 @@ layout = dbc.Col([
     dbc.Row([],style={"height":"50px"}),
     dbc.Row([html.H5(id="results_anzeigen", children=[], style={"color":"#f06b05"})], style={"margin":"30px"}),
     dbc.Row([dbc.Col(id='table_anzeigen', children=[], style={"margin":"20px"})
-    ])
+    ]),
+    dbc.Row([
+        dbc.Alert(id="api-error-alert", is_open=False, color="danger", className="mt-3")
+    ], style={"margin":"20px"})
     
 ],style={'textAlign': 'center', 'padding':'10px','margin':'20px'})
+
+
+def _build_status_message(message):
+    return html.Div([
+        html.Div(message, style={'color': 'green'})
+    ])
+
+
+def _toggle_sidebar_state(is_open):
+    if is_open:
+        return False, {"display": "none"}, 12
+    return True, {"display": "block"}, 8
+
+
+def _handle_route_calculation(map_div, m, start_loc_input, end_loc_input, waypoint_div, json_route, html_map_route):
+    map_div, m, route_text = calculate_route(
+        geolocator,
+        start_loc_input,
+        end_loc_input,
+        waypoint_div,
+        json_route,
+        html_map_route,
+    )
+    loading_output_calculate_route = _build_status_message(f"Route Loaded: {route_text}")
+    return map_div, m, loading_output_calculate_route, True, False
+
+
+def _handle_start_search(map_div, m, search_phrases_div, page_limit, price_min, price_max, search_radius,
+                        html_map_route_anzeigen, json_route, route_anzeigen_json, anzeigen_general_json,
+                        is_open):
+    if os.path.exists(json_route):
+        table_anzeigen_div, map_div, m, search_phrases, count_articles_on_route = start_search_anzeigen(
+            geolocator,
+            m,
+            search_phrases_div,
+            page_limit,
+            price_min,
+            price_max,
+            search_radius,
+            html_map_route_anzeigen,
+            json_route,
+            route_anzeigen_json,
+            anzeigen_general_json,
+        )
+    else:
+        table_anzeigen_div = []
+        search_phrases = []
+        count_articles_on_route = 0
+
+    anzeigen_results_info = f"{count_articles_on_route} Anzeigen found on route"
+    loading_output_search_route = html.Div([
+        dbc.Col([
+            dbc.Row([_build_status_message(
+                f"Results Along Route Loaded: Radius {search_radius} km Page Limit {page_limit}")]),
+            dbc.Row([_build_status_message(f"Search Terms: {search_phrases}")]),
+        ])
+    ])
+    is_open, width_collapsable, width_content = _toggle_sidebar_state(is_open)
+    return table_anzeigen_div, map_div, m, anzeigen_results_info, loading_output_search_route, is_open, width_collapsable, width_content
 
 
 @callback([
@@ -96,9 +158,8 @@ layout = dbc.Col([
     Output('loading-calculate-route', 'children'),
     Output('loading-general', 'children'),
     Output('start_search_btn', 'disabled'),
-    Output("horizontal-collapse", "is_open"),
-    Output("collapsable_col", "style"),
-    Output("content_col", "width"),
+    Output('api-error-alert', 'children'),
+    Output('api-error-alert', 'is_open'),
     ], [Input("calculate_route_btn", "n_clicks"),
         Input("add_waitpoint_btn", "n_clicks"),
         Input("rm_waitpoint_btn", "n_clicks"),
@@ -120,108 +181,119 @@ layout = dbc.Col([
         State("horizontal-collapse", "is_open"),
         State("collapsable_col", "style"),
         State("content_col", "width"),
-        State("results_anzeigen", "children")
+        State("results_anzeigen", "children"),
+        State("map_route_div", "children")
         ], 
 )
-def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase, n_load_route, n_load_search_results, n_load_general_search_results, start_loc_input, end_loc_input, waypoint_div, search_phrases_div, search_radius, page_limit, price_min, price_max, table_anzeigen_div, is_open, width_collapsable, width_content, anzeigen_results_info):
+def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase, n_load_route, n_load_search_results, n_load_general_search_results, start_loc_input, end_loc_input, waypoint_div, search_phrases_div, search_radius, page_limit, price_min, price_max, table_anzeigen_div, is_open, width_collapsable, width_content, anzeigen_results_info, map_div):
     global m
     global ROUTE_LOADED
     global SEARCH_ALONG_ROUTE_DISABLED
     
-    map_div = create_map_div(settings)
-    
     loading_output_calculate_route = []
     loading_output_search_route = []
     loading_general = []
-    search_phrases_div, n_add_searchphrase, n_rm_searchphrase = trigger_format_dynamic_inputs(n_add_searchphrase ,n_rm_searchphrase, search_phrases_div, input_search_div, "searchphrase")
-    waypoint_div, n_add_waypoints, n_rm_waypoints = trigger_format_dynamic_inputs(n_add_waypoints ,n_rm_waypoints, waypoint_div, input_route_div, "way_point")
-          
-        # calculate button pressed
-    if n_calculate_route != 0: 
+    api_error_message = ""
+    api_error_open = False
+    search_phrases_div, n_add_searchphrase, n_rm_searchphrase = trigger_format_dynamic_inputs(n_add_searchphrase, n_rm_searchphrase, search_phrases_div, input_search_div, "searchphrase")
+    waypoint_div, n_add_waypoints, n_rm_waypoints = trigger_format_dynamic_inputs(n_add_waypoints, n_rm_waypoints, waypoint_div, input_route_div, "way_point")
+
+    if n_calculate_route != 0:
         logging.info("Calculate route button pressed.")
-        map_div, m, route_text = calculate_route(geolocator, start_loc_input, end_loc_input,waypoint_div,json_route ,html_map_route)
-        loading_output_calculate_route = html.Div([
-            html.Div("Route Loaded: {}".format(route_text), style={'color':'green'})
-        ])
-        loading_general = html.Div([
-            html.Div()
-        ])
-        
-        ROUTE_LOADED = True
-        SEARCH_ALONG_ROUTE_DISABLED = not ROUTE_LOADED
+        try:
+            map_div, m, loading_output_calculate_route, ROUTE_LOADED, SEARCH_ALONG_ROUTE_DISABLED = _handle_route_calculation(
+                map_div,
+                m,
+                start_loc_input,
+                end_loc_input,
+                waypoint_div,
+                json_route,
+                html_map_route,
+            )
+        except Exception as error:
+            api_error_message = format_api_error_message(error) if isinstance(error, ApiRequestError) else str(error)
+            api_error_open = True
+            logging.exception("Route calculation failed")
+        loading_general = html.Div([html.Div()])
         n_calculate_route = 0
 
-        
     elif n_start_search != 0:
         logging.info("Route search button pressed.")
-
-        if(os.path.exists(json_route)):
-            table_anzeigen_div, map_div, m, search_phrases, count_articles_on_route = start_search_anzeigen(geolocator, m, search_phrases_div, page_limit, price_min, price_max, search_radius, html_map_route_anzeigen,json_route, route_anzeigen_json, anzeigen_general_json)
-       
-        anzeigen_results_info = "{} Anzeigen found on route".format(count_articles_on_route)
-
-        loading_output_search_route = html.Div([
-            dbc.Col([
-                dbc.Row([html.Div("Results Along Route Loaded:  Radius {radius} km  Page Limit {page_limit}".format(radius=search_radius, page_limit=page_limit), style={'color':'green'})]),
-                dbc.Row([html.Div("Search Terms:  {search_term}".format(search_term=search_phrases), style={'color':'green'})])
-            ])
-            
-        ])
-        loading_general = html.Div([
-            html.Div()
-        ])
-        
-        if(is_open):
-            width_content = 12
-            width_collapsable = {"display":"none"}
-            is_open = not is_open
-        else:
-            width_content = 8
-            width_collapsable = {"display":"block"}
-            is_open = not is_open
-            
-
+        try:
+            table_anzeigen_div, map_div, m, anzeigen_results_info, loading_output_search_route, is_open, width_collapsable, width_content = _handle_start_search(
+                map_div,
+                m,
+                search_phrases_div,
+                page_limit,
+                price_min,
+                price_max,
+                search_radius,
+                html_map_route_anzeigen,
+                json_route,
+                route_anzeigen_json,
+                anzeigen_general_json,
+                is_open,
+            )
+        except Exception as error:
+            api_error_message = format_api_error_message(error) if isinstance(error, ApiRequestError) else str(error)
+            api_error_open = True
+            logging.exception("Route search failed")
+        loading_general = html.Div([html.Div()])
         n_start_search = 0
-        
-    # load search results button pressed
-    elif n_load_search_results != 0: 
+
+    elif n_load_search_results != 0:
         logging.info("Load previous route search button pressed.")
         if os.path.exists(route_anzeigen_json):
             table_anzeigen_div, map_div, m, count_articles_on_route = load_search_anzeigen_along_route(m, html_map_route_anzeigen, route_anzeigen_json)
-            anzeigen_results_info = "{} Anzeigen found on route ".format(count_articles_on_route)
+            anzeigen_results_info = f"{count_articles_on_route} Anzeigen found on route "
         n_load_search_results = 0
-        
-    # calculate button pressed
-    elif n_load_general_search_results != 0: 
+
+    elif n_load_general_search_results != 0:
         logging.info("Load general search button pressed.")
         loading_output_search_route = html.Div([
             dcc.Loading(type="circle", fullscreen=True),
         ])
-        if (os.path.exists(anzeigen_general_json) and os.path.exists(json_route)):
+        if os.path.exists(anzeigen_general_json) and os.path.exists(json_route):
             table_anzeigen_div, map_div, m, count_articles_on_route = load_general_search(json_route, html_map_route, search_radius, html_map_route_anzeigen, route_anzeigen_json, anzeigen_general_json)
-            anzeigen_results_info = "{} Anzeigen found in Deutschland ".format(count_articles_on_route)
-            
+            anzeigen_results_info = f"{count_articles_on_route} Anzeigen found in Deutschland "
         n_load_general_search_results = 0
-        
+
     elif n_load_route != 0:
         logging.info("Load previous route pressed.")
-        if(os.path.exists(json_route)):
-            map_div, m  = load_route(json_route, html_map_route)
-            
+        if os.path.exists(json_route):
+            map_div, m = load_route(json_route, html_map_route)
         ROUTE_LOADED = True
         SEARCH_ALONG_ROUTE_DISABLED = not ROUTE_LOADED
         n_load_route = 0
-    
-  
-              
-    return [n_calculate_route, n_add_waypoints, n_rm_waypoints, n_start_search, n_add_searchphrase, n_rm_searchphrase,n_load_route, n_load_search_results, n_load_general_search_results, waypoint_div, search_phrases_div, map_div,  table_anzeigen_div, anzeigen_results_info, loading_output_calculate_route, loading_output_search_route, loading_general, SEARCH_ALONG_ROUTE_DISABLED, is_open, width_collapsable, width_content]
-    
-    
+
+    return [
+        n_calculate_route,
+        n_add_waypoints,
+        n_rm_waypoints,
+        n_start_search,
+        n_add_searchphrase,
+        n_rm_searchphrase,
+        n_load_route,
+        n_load_search_results,
+        n_load_general_search_results,
+        waypoint_div,
+        search_phrases_div,
+        map_div,
+        table_anzeigen_div,
+        anzeigen_results_info,
+        loading_output_calculate_route,
+        loading_output_search_route,
+        loading_general,
+        SEARCH_ALONG_ROUTE_DISABLED,
+        api_error_message,
+        api_error_open,
+    ]
+
 
 @callback(
-    Output("horizontal-collapse", "is_open", allow_duplicate=True),
-    Output("collapsable_col", "style", allow_duplicate=True),
-    Output("content_col", "width", allow_duplicate=True),
+    Output("horizontal-collapse", "is_open"),
+    Output("collapsable_col", "style"),
+    Output("content_col", "width"),
     [Input("horizontal-collapse-button", "n_clicks")],
     [State("horizontal-collapse", "is_open"),
         State("collapsable_col", "style"),
@@ -229,21 +301,16 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
     prevent_initial_call=True
 )
 def toggle_collapse(n, is_open, width_collapsable, width_content):
-    
     if n:
-        if(is_open):
+        if is_open:
             width_content = 12
-            width_collapsable = {"display":"none", "height":"100%"}
+            width_collapsable = {"display": "none", "height": "100%"}
         else:
             width_content = 8
-            width_collapsable = {"display":"block","height":"100%"}
-            
+            width_collapsable = {"display": "block", "height": "100%"}
         return not is_open, width_collapsable, width_content
-    
 
-    
     return is_open, width_collapsable, width_content
-
 
 
 @callback(

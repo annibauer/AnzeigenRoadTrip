@@ -1,0 +1,61 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+./tests/__pycache__
+./pages/__pycache__
+./https:/github.com/annibauer
+./functions/__pycache__
+./elements/__pycache__
+
+
+# Virtual environments
+.venv/
+venv/
+env/
+anzeigen_env/
+
+# Environment / local config
+.env
+.env.*
+*.local
+.settings/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and runtime data
+logs/
+*.log
+*.log.*
+
+# Dash / app runtime output
+storage/
+*.sqlite3
+*.db
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Coverage / test reports
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# IDE/editor files
+.idea/
+*.swp
+*.swo
+
+

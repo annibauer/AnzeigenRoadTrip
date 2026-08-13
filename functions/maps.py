@@ -46,32 +46,36 @@ def format_route_string(geolocator, route_array):
 
 def generate_route_coordinates(geolocator, route_array, json_file_path_route):
     route_string = format_route_string(geolocator, route_array)
-    
-    response = requests.get(url="http://router.project-osrm.org/route/v1/driving/{route_string}?alternatives=false&overview=simplified&annotations=nodes".format(route_string=route_string))
-    json_data = json.loads(response.text)
-    nodes = json_data['routes'][0]['legs'][0]['annotation']['nodes']
-    step_size = round(len(nodes)/50)
-    location_nodes = nodes[0::step_size]
 
-    api = osm.OsmApi()
+    response = requests.get(
+        f"http://router.project-osrm.org/route/v1/driving/{route_string}?overview=full&geometries=geojson"
+    )
+
+    json_data = response.json()
+    coords = json_data['routes'][0]['geometry']['coordinates']
+
     location_points = []
     latitude_list = []
     longitude_list = []
-    for node in location_nodes:
-        node = api.NodeGet(node)
-        latitude_list.append(node['lat'])
-        longitude_list.append(node['lon'])
-        location_points.append([node['lat'],node['lon']])
-    
-    route_df = pd.DataFrame(columns=['latitude','longitude'])
-    route_df['latitude'] = latitude_list
-    route_df['longitude'] = longitude_list
-            
+
+    step_size = max(1, round(len(coords) / 50))
+    coords = coords[0::step_size]
+
+    for lon, lat in coords:
+        latitude_list.append(lat)
+        longitude_list.append(lon)
+        location_points.append([lat, lon])
+
+    route_df = pd.DataFrame({
+        "latitude": latitude_list,
+        "longitude": longitude_list
+    })
 
     if os.path.exists(json_file_path_route):
         os.remove(json_file_path_route)
-    
-    route_df.to_json(json_file_path_route)  
+
+    route_df.to_json(json_file_path_route)
+
     return location_points
     
 def generate_map_route(location_points, html_file_name):
@@ -174,6 +178,7 @@ def filter_on_route_anzeigen(location_points,search_radius, m, html_file_name, j
             add_article(json_file_anzeigen, article)
             map_div, m = add_location_anzeigen_markers_to_map(article, article_location, m ,html_file_name)
     
+    print(json_file_anzeigen)
     overview_anzeigen_div = generate_anzeigen_card_div(json_file_anzeigen)  
     return overview_anzeigen_div, map_div, m 
 
