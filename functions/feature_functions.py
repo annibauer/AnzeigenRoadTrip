@@ -3,6 +3,10 @@ from functions.anzeigen import *
 from functions.maps import *
 from functions.misc import *  
 
+
+def handle_api_error(error):
+    return str(error)
+
 def trigger_format_dynamic_inputs(n_add ,n_rm, div, input, id_pre_desc):  
     logging.debug("Format Dynamic Input")
     
@@ -48,8 +52,9 @@ def start_search_anzeigen(geolocator, m ,search_phrases_div, page_limit, price_m
 
     table_anzeigen_div, map_div, m  = filter_on_route_anzeigen(location_points,search_radius, m, html_map_route_anzeigen, route_anzeigen_json, anzeigen_general_json)
     print("Search Done. ")
-        
-    return table_anzeigen_div, map_div, m, search_phrases_text
+    count_articles_on_route = len(pd.read_json(route_anzeigen_json))
+    
+    return table_anzeigen_div, map_div, m, search_phrases_text, count_articles_on_route
 
 def load_search_anzeigen_along_route(m, html_map_route_anzeigen, route_anzeigen_json):
     table_anzeigen_div, map_div, m, count_articles_on_route = display_filtered_anzeigen_map(m, html_map_route_anzeigen, route_anzeigen_json)

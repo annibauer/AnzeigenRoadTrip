@@ -10,6 +10,18 @@ from pprint import *
 from elements.article import *
 
 
+class ApiRequestError(Exception):
+    def __init__(self, url, status_code, detail=None):
+        self.url = url
+        self.status_code = status_code
+        self.detail = detail
+        super().__init__(detail or f"Request failed with status {status_code}")
+
+
+def format_api_error_message(error):
+    detail = error.detail or "No additional details available."
+    return f"Request failed for {error.url} with status {error.status_code}: {detail}"
+
 
 def new_article_json(name, img, url_ref, price, location, latitude, longitude, description, time_posted):
 
@@ -33,6 +45,8 @@ def add_article(json_file_path, article_obj):
         articles_df = pd.read_json(json_file_path)
         
         filtered_df = articles_df[(articles_df['latitude'] == article_obj['latitude']) & (articles_df['longitude'] == article_obj['longitude'])]
+        
+        
         if(len(filtered_df)>0):
             article_obj['latitude'] = article_obj['latitude'] + 0.01
             article_obj['longitude'] = article_obj['longitude'] + 0.01
@@ -58,9 +72,9 @@ def search_anzeigen_everywhere(geolocator, json_file_path, search_input, page_li
     if(price_min == None and price_max == None):
         price_filter =''
     elif(price_min == None):
-        price_filter = '/s-preis:0:' + int(price_max)
+        price_filter = f'/s-preis:0:{price_max}'
     elif(price_max == None):
-        price_filter = '/s-preis:' + int(price_min) +':'
+        price_filter = f'/s-preis:{price_min}:'
     else:
         price_filter = ''
 
@@ -76,7 +90,14 @@ def search_anzeigen_everywhere(geolocator, json_file_path, search_input, page_li
     
 
 def extract_article_all_page(geolocator, json_file_path, headers, URL_ROOT, URL, page_limit):
-    response = requests.get(url=URL, headers=headers)
+    try:
+        response = requests.get(url=URL, headers=headers, timeout=20)
+    except requests.exceptions.RequestException as exc:
+        raise ApiRequestError(URL, 0, str(exc)) from exc
+
+    if response.status_code != 200:
+        raise ApiRequestError(URL, response.status_code, response.text)
+
     page = response.content
     soup = BeautifulSoup(page, "html.parser")
 
@@ -91,12 +112,13 @@ def extract_article_all_page(geolocator, json_file_path, headers, URL_ROOT, URL,
         next_page_url =  "{root}{search_phrase}".format(root= URL_ROOT,search_phrase= next_page_href)
     else:
         next_page = soup.find("a", {"class": "pagination-next"}) 
-        next_page_href = next_page['href']  
-        next_page_url =  "{root}{search_phrase}".format(root= URL_ROOT,search_phrase= next_page_href)
+        if(next_page != None):
+            next_page_href = next_page['href']  
+            next_page_url =  "{root}{search_phrase}".format(root= URL_ROOT,search_phrase= next_page_href)
     
 
         
-    if(page_limit != None):
+    if(page_limit != None and next_page_href):
         page_str = next_page_href.split(":")[1]
         page = int(page_str.split("/")[0])
         if(page> int(page_limit)):
@@ -167,24 +189,28 @@ def find_anzeigen_general_search(geolocator, search_phrases_list, page_limit, pr
         
         
 def format_location_description(geolocator, loc_desc):
+    if not loc_desc:
+        return None
+
     location_arr = loc_desc.split(" ")
     try:
         location_g = geolocator.geocode(loc_desc)
-        i=len(location_arr)
-        while(location_g == None and i!=0):
+        i = len(location_arr)
+        while location_g is None and i != 0:
             location_g = geolocator.geocode(location_arr[0:i-2])
-            i = i-1
-    except:
+            i = i - 1
+    except Exception as exc:
         print("*******   FORMAT LOCATION ERROR " + str(loc_desc))
-        location_g = None
+        raise ApiRequestError("geocoding", 502, str(exc)) from exc
 
-        
     return location_g
 
 
 def generate_anzeigen_card_div(json_anzeigen):
     styles_css = read_styles()
     list_of_cards = []
+    
+    
     articles_filtered_df = pd.read_json(json_anzeigen)
     
     count_articles_on_route = articles_filtered_df.shape[0]
