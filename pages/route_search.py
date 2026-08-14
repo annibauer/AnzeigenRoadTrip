@@ -1,5 +1,5 @@
 import dash
-from dash import Dash, html, dcc, html, Input, Output, callback, State, no_update
+from dash import Dash, html, dcc, html, Input, Output, callback, State, ctx, no_update
 import pandas as pd
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
@@ -70,7 +70,9 @@ layout = dbc.Col([
             ], id='content_col', width=12)
         ],style={"margin":"10px", "height":"100%"}),
     dbc.Row([],style={"height":"50px"}),
+    dcc.Interval(id="filter-progress-interval", interval=500, n_intervals=0, disabled=True),
     dbc.Row([html.H5(id="results_anzeigen", children=[], style={"color":"#f06b05"})], style={"margin":"30px"}),
+    dbc.Row([html.Div(id="filter-progress-status", children=[], style={"color":"#6c757d"})], style={"margin":"0 30px 20px 30px"}),
     dbc.Row([dbc.Col(id='table_anzeigen', children=[], style={"margin":"20px"})
     ]),
     dbc.Row([
@@ -311,6 +313,36 @@ def toggle_collapse(n, is_open, width_collapsable, width_content):
         return not is_open, width_collapsable, width_content
 
     return is_open, width_collapsable, width_content
+
+
+@callback(
+    Output("filter-progress-status", "children"),
+    Output("filter-progress-interval", "disabled"),
+    Output("filter-progress-interval", "n_intervals"),
+    Input("start_search_btn", "n_clicks"),
+    Input("filter-progress-interval", "n_intervals"),
+    prevent_initial_call=True,
+)
+def update_filter_progress_status(n_start_search, n_intervals):
+    trigger_id = ctx.triggered_id
+
+    if trigger_id == "start_search_btn":
+        return "Filtering articles: 0 matches from 0 checked", False, 0
+
+    progress = read_filter_progress(get_filter_progress_path(route_anzeigen_json))
+    if not progress:
+        return "Starting article filter...", False, no_update
+
+    status = progress.get("status")
+    filtered = progress.get("filtered", 0)
+    processed = progress.get("processed", 0)
+    total = progress.get("total", 0)
+
+    message = f"Filtering articles: {filtered} matches from {processed}/{total} checked"
+    if status == "complete":
+        return message, True, 0
+
+    return message, False, no_update
 
 
 @callback(

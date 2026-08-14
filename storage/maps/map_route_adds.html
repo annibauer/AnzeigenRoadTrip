@@ -3,13 +3,21 @@
 <head>
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
@@ -17,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_3f59133799f1693f22c8eaf12bc51ab9 {
+                #map_d9163e833e54791adb2828fa094627dd {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -26,51 +34,26 @@
                 }
                 .leaflet-container { font-size: 1rem; }
             </style>
-
-            <style>html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            </style>
-
-            <style>#map {
-                position:absolute;
-                top:0;
-                bottom:0;
-                right:0;
-                left:0;
-                }
-            </style>
-
-            <script>
-                L_NO_TOUCH = false;
-                L_DISABLE_3D = false;
-            </script>
-
         
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_3f59133799f1693f22c8eaf12bc51ab9" ></div>
+            <div class="folium-map" id="map_d9163e833e54791adb2828fa094627dd" ></div>
         
 </body>
 <script>
     
     
-            var map_3f59133799f1693f22c8eaf12bc51ab9 = L.map(
-                "map_3f59133799f1693f22c8eaf12bc51ab9",
+            var map_d9163e833e54791adb2828fa094627dd = L.map(
+                "map_d9163e833e54791adb2828fa094627dd",
                 {
-                    center: [51.0, 11.0],
+                    center: [0.0, 0.0],
                     crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 6,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
-
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    x: [51, 11],
                 }
             );
 
@@ -78,438 +61,352 @@
 
         
     
-            var tile_layer_70dc9ce7f1e8ad2b10eea1028027a485 = L.tileLayer(
+            var tile_layer_7d5f6667d6843c386e8e07c89f83f7c5 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_71f54fa169c1d57a876d5df0946bcad1 = L.polyline(
-                [[52.51097, 13.39892], [52.49123, 13.45843]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_3b90c6bcbe0dc2817c27d02335da0513 = L.polyline(
+                [[52.51739, 13.395139], [52.515396, 13.351125]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_56e5adca7422b918f3bcc10fc8d46314 = L.polyline(
-                [[52.49123, 13.45843], [52.45116, 13.46329]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_54e32fadc777391d76380cc77f555bca = L.polyline(
+                [[52.515396, 13.351125], [52.397629, 13.181784]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_7f8e07623aadb5d0a5ab24518de481a4 = L.polyline(
-                [[52.45116, 13.46329], [52.42531, 13.52119]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_90be431c5082c1ab29bd3728dbb71af2 = L.polyline(
+                [[52.397629, 13.181784], [52.13752, 12.75783]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_ecb81a2239d0cf11ca62c2b368ab1f66 = L.polyline(
-                [[52.42531, 13.52119], [52.29548, 13.55742]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_51774e0a2f19c6fc8fccbc64cfe2312f = L.polyline(
+                [[52.13752, 12.75783], [51.766762, 12.240802]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_4e5e063cb087044a6e6394c5e283ea48 = L.polyline(
-                [[52.29548, 13.55742], [52.15591, 13.64827]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_c643f15cb5e30d08b34e2c80b67f8d43 = L.polyline(
+                [[51.766762, 12.240802], [51.248424, 12.07027]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_0e8cf70e7a42d093bcfa4342bdc72979 = L.polyline(
-                [[52.15591, 13.64827], [52.05212, 13.65657]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_717ee4c01b8afcf531cbf3788a0e8943 = L.polyline(
+                [[51.248424, 12.07027], [50.865031, 11.757264]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_396e2f3363123654cc28e8c65ec3de71 = L.polyline(
-                [[52.05212, 13.65657], [51.9643, 13.7632]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_7c967bef209810261f3b36262f62da29 = L.polyline(
+                [[50.865031, 11.757264], [50.949409, 11.244933]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_c8c32afb2ce5e6a021de802a18e26d50 = L.polyline(
-                [[51.9643, 13.7632], [51.92867, 13.76914]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_a31f02ac09e3727a0906600ffaf593b2 = L.polyline(
+                [[50.949409, 11.244933], [50.908056, 10.648177]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_1c5a14fc44fe8c0a84aad316beba2c8d = L.polyline(
-                [[51.92867, 13.76914], [51.89457, 13.82105]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_caee66175639b40f8e050e491f9b38bd = L.polyline(
+                [[50.908056, 10.648177], [51.006112, 10.197114]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_db87f6eb4de50ab9e0e725699f94ef47 = L.polyline(
-                [[51.89457, 13.82105], [51.87572, 13.88982]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_331f0bb842cbd00baffc4089b4acfc94 = L.polyline(
+                [[51.006112, 10.197114], [50.896322, 9.858794]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_a67e39f9b0f2e205fc6b7cdee19972dc = L.polyline(
-                [[51.87572, 13.88982], [51.84358, 13.92206]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_90f4d36bc8a3032a254ed369fb5a919f = L.polyline(
+                [[50.896322, 9.858794], [50.821737, 9.569606]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_6f36b09c186be60c93968ebe70d69404 = L.polyline(
-                [[51.84358, 13.92206], [51.74506, 13.86125]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_7178f59f43b03bc88592fdd2dba85150 = L.polyline(
+                [[50.821737, 9.569606], [50.734113, 9.23749]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_2bfa78723539b2f0f3e4be31165640a8 = L.polyline(
-                [[51.74506, 13.86125], [51.66997, 13.90334]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_3d76361b9c867381bbb4aa58eda2996d = L.polyline(
+                [[50.734113, 9.23749], [50.59476, 8.813108]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_e11e052c66a59284a26bf3a2b461d51a = L.polyline(
-                [[51.66997, 13.90334], [51.64997, 13.94018]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_ad313de1f623c98c3da684c4180ebb8e = L.polyline(
+                [[50.59476, 8.813108], [50.188607, 8.623658]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_a16c3346c72505c0d2fbdc59d3821d36 = L.polyline(
-                [[51.64997, 13.94018], [51.59907, 13.95285]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_1a360269fa26d4ed1b1a1f0c3c84b4eb = L.polyline(
+                [[50.188607, 8.623658], [49.537194, 8.559221]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_38e1b2281c910b69c81554dee560f95f = L.polyline(
-                [[51.59907, 13.95285], [51.5516, 13.912]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_863ef74b9e11f48fec11f518eedb26c8 = L.polyline(
+                [[49.537194, 8.559221], [49.257511, 8.602562]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_6203d413caf05b8fe0d0f100b6397911 = L.polyline(
-                [[51.5516, 13.912], [51.49585, 13.89856]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var poly_line_6780f312eadced19bcb3dc92b9159661 = L.polyline(
+                [[49.257511, 8.602562], [49.007214, 8.426964]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_e798af831c5bfb7032c290f30b77e29d = L.polyline(
-                [[51.49585, 13.89856], [51.34666, 13.71666]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_2a1dbee94580d229f9fe7d48c3d899e6 = L.polyline(
-                [[51.34666, 13.71666], [51.15865, 13.75075]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_84528ecf6915d7274c97921ac4116b94 = L.marker(
+                [49.2568614, 8.6265334],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var poly_line_a0af0e1685521cc42fc3c9fc690858e0 = L.polyline(
-                [[51.15865, 13.75075], [51.04935, 13.73815]],
-                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1, "smoothFactor": 1.0, "stroke": true, "weight": 5}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
-        
-    
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
-        
-    
-            var marker_c36d56c1aa50fb2d9ac6e673a401c7a1 = L.marker(
-                [52.6121896, 13.2493286],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
-        
-    
-        var popup_cc7004d1b1d2d018f81cf6823b41fcbe = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_035826d37a59b5e9cc5fe0bd933b7a4b = L.popup({"maxWidth": 2650});
 
         
             
-                var html_2d35769f0e7cb12f6202946dce1f880c = $(`<div id="html_2d35769f0e7cb12f6202946dce1f880c" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/xxxl-10x20m-x5-5m-titan-lagerzelt-zeltgarage-weidezelt-zelthalle-stahlrohre-76mm-pvc-650g/2070125250-87-3451 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a1/a16c01a1-46c9-42f8-80a8-f5a202a79864?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">XXXL 10x20m x5,5m TITAN Lagerzelt Zeltgarage Weidezelt Zelthalle Stahlrohre Ø 76mm PVC 650g</div>             <div style="color: #666; margin-bottom: 12px;">13503 Reinickendorf                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">10.990€</div>             <div style="color: #666; margin-bottom: 12px;"> </div>         </div>         </a>         </div>         </div>`)[0];
-                popup_cc7004d1b1d2d018f81cf6823b41fcbe.setContent(html_2d35769f0e7cb12f6202946dce1f880c);
+                var html_819814a637fa4648dade078992779bc0 = $(`<div id="html_819814a637fa4648dade078992779bc0" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/ablufthaube-edelstahl-fuer-aussengrill/3484442984-84-8251 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/be/be4871ff-b256-482f-a26b-0ac908079980?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Ablufthaube Edelstahl für Aussengrill</div>             <div style="color: #666; margin-bottom: 12px;">68789 St. Leon-​Rot                                                                        </div>             <div style="font-weight: bold; color: #333;">VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:55</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_035826d37a59b5e9cc5fe0bd933b7a4b.setContent(html_819814a637fa4648dade078992779bc0);
             
         
 
-        marker_c36d56c1aa50fb2d9ac6e673a401c7a1.bindPopup(popup_cc7004d1b1d2d018f81cf6823b41fcbe)
+        marker_84528ecf6915d7274c97921ac4116b94.bindPopup(popup_035826d37a59b5e9cc5fe0bd933b7a4b)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_5bf2a39f1a464207ed336652c4179aab = L.marker(
-                [52.5765704, 13.274291999999999],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_c7be2caea6aadcb3e7808e2beef4c124 = L.marker(
+                [52.4950243, 13.3147792],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_3f3beb0e4b028e386a89ae0a1c5140e1 = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_542c52b04e48d8dbba83d11625ae468e = L.popup({"maxWidth": 2650});
 
         
             
-                var html_601fa92f772f56cbf44488fb94279c0a = $(`<div id="html_601fa92f772f56cbf44488fb94279c0a" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/kuechen-und-wc-papirhalter/3159269130-91-3453 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b9/b98cf09a-fde0-41ca-bc4c-86325076d2c8?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">küchen und wc papirhalter</div>             <div style="color: #666; margin-bottom: 12px;">13507 Reinickendorf                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">25€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:06</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_3f3beb0e4b028e386a89ae0a1c5140e1.setContent(html_601fa92f772f56cbf44488fb94279c0a);
+                var html_26c9cce482ac06713b16d4e87977da53 = $(`<div id="html_26c9cce482ac06713b16d4e87977da53" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/auflaufform-aus-edelstahl/3484438175-86-3534 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/30/30ca3e3f-e489-4a39-917d-5edb174a5745?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Auflaufform aus Edelstahl</div>             <div style="color: #666; margin-bottom: 12px;">10707 Wilmersdorf                                                                        </div>             <div style="font-weight: bold; color: #333;">10€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:50</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_542c52b04e48d8dbba83d11625ae468e.setContent(html_26c9cce482ac06713b16d4e87977da53);
             
         
 
-        marker_5bf2a39f1a464207ed336652c4179aab.bindPopup(popup_3f3beb0e4b028e386a89ae0a1c5140e1)
+        marker_c7be2caea6aadcb3e7808e2beef4c124.bindPopup(popup_542c52b04e48d8dbba83d11625ae468e)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_75bd9b11510c9eb1fddb9601b132667b = L.marker(
-                [52.551628, 13.4080206],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_f62239259875a40ca6210c09057c5243 = L.marker(
+                [52.493094, 13.3968551],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_9a61ad83e6ace4250c7a761a1f09dbc4 = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_de6fe51ee23e515fc490685b5f6fa0df = L.popup({"maxWidth": 2650});
 
         
             
-                var html_e08f096772bad75837b09a801f085c64 = $(`<div id="html_e08f096772bad75837b09a801f085c64" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/geschirrspueler-siemens-60cm-a-edestahl-1-jahr-garantie/3001939061-176-3490 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/47/4777a5dd-b388-4a3c-becf-456be7d92cf9?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Geschirrspüler Siemens 60cm A+++ Edestahl 1 Jahr Garantie</div>             <div style="color: #666; margin-bottom: 12px;">10439 Prenzlauer Berg                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">249€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:04</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_9a61ad83e6ace4250c7a761a1f09dbc4.setContent(html_e08f096772bad75837b09a801f085c64);
+                var html_1f345ac269bfcc56350d5c5a8105a56a = $(`<div id="html_1f345ac269bfcc56350d5c5a8105a56a" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/1l-khg-wasserkocher-edelstahl/3484433946-176-3377 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/2c/2c3693e0-8048-4118-afa4-6431b2dceb45?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">1L KHG Wasserkocher Edelstahl</div>             <div style="color: #666; margin-bottom: 12px;">10961 Kreuzberg                                                                        </div>             <div style="font-weight: bold; color: #333;">15€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:45</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_de6fe51ee23e515fc490685b5f6fa0df.setContent(html_1f345ac269bfcc56350d5c5a8105a56a);
             
         
 
-        marker_75bd9b11510c9eb1fddb9601b132667b.bindPopup(popup_9a61ad83e6ace4250c7a761a1f09dbc4)
+        marker_f62239259875a40ca6210c09057c5243.bindPopup(popup_de6fe51ee23e515fc490685b5f6fa0df)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_6274b5c1d83b2e600443be8febc7047b = L.marker(
-                [52.561628, 13.4180206],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_6cf50186b27572b03f32c4febbd1528b = L.marker(
+                [52.4868693, 13.3137346],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_06b4f92ba1df369158cea8b4f83ab5d1 = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_fefd950d699cc4c8e6478843dc9aeb26 = L.popup({"maxWidth": 2650});
 
         
             
-                var html_40ab218a48f12fc32f33380c7fdbcce2 = $(`<div id="html_40ab218a48f12fc32f33380c7fdbcce2" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/geschirrspueler-siemens-60cm-edestahl-a-1-jahr-garantie/2975113730-176-3490 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/3e/3e3aa605-d1e0-42da-9c28-20b759aa7b85?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Geschirrspüler Siemens 60cm Edestahl A+++ 1 Jahr Garantie</div>             <div style="color: #666; margin-bottom: 12px;">10439 Prenzlauer Berg                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">249€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:04</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_06b4f92ba1df369158cea8b4f83ab5d1.setContent(html_40ab218a48f12fc32f33380c7fdbcce2);
+                var html_1ce1e4d9b5ad2da714ecf74380ef0e09 = $(`<div id="html_1ce1e4d9b5ad2da714ecf74380ef0e09" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/bosch-abzugshaube-dhl575c-edelstahl-mit-beleuchtung/3484433093-176-3536 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/2a/2a85455e-f4fb-476a-8aa2-1da070eb7b96?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Bosch Abzugshaube DHL575C Edelstahl mit Beleuchtung</div>             <div style="color: #666; margin-bottom: 12px;">10713 Wilmersdorf                                                                        </div>             <div style="font-weight: bold; color: #333;">80€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:44</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_fefd950d699cc4c8e6478843dc9aeb26.setContent(html_1ce1e4d9b5ad2da714ecf74380ef0e09);
             
         
 
-        marker_6274b5c1d83b2e600443be8febc7047b.bindPopup(popup_06b4f92ba1df369158cea8b4f83ab5d1)
+        marker_6cf50186b27572b03f32c4febbd1528b.bindPopup(popup_fefd950d699cc4c8e6478843dc9aeb26)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_e729920061c95e169d27c1aea7ea03c5 = L.marker(
-                [52.537132, 13.6104448],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_845a43e34b274dd0757dcb6f5d950487 = L.marker(
+                [49.3824172, 8.5874708],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_0cee23bd5fa384c6a00f776ee82fb66a = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_f53c204c807ffbf1959484e0c559a170 = L.popup({"maxWidth": 2650});
 
         
             
-                var html_a547958eb1eccd68312397fd5461c0e1 = $(`<div id="html_a547958eb1eccd68312397fd5461c0e1" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/metalltreppe-stahltreppe-fluchttreppe-und-innentreppen-holz-und-stahlwange-treppe-aus-polen/2566287953-239-3514 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a8/a8791506-bf36-48ea-8093-ec4ba1f13d73?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Metalltreppe Stahltreppe Fluchttreppe und Innentreppen Holz und Stahlwange Treppe aus Polen</div>             <div style="color: #666; margin-bottom: 12px;">12627 Hellersdorf                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">VB</div>             <div style="color: #666; margin-bottom: 12px;"> </div>         </div>         </a>         </div>         </div>`)[0];
-                popup_0cee23bd5fa384c6a00f776ee82fb66a.setContent(html_a547958eb1eccd68312397fd5461c0e1);
+                var html_315a1e473bdecf005af0a742c14ada70 = $(`<div id="html_315a1e473bdecf005af0a742c14ada70" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/massives-stahlregal-mit-holzboeden/3484431008-88-16913 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/66/66006c42-497a-476e-b0fa-376aae953bde?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Massives Stahlregal mit Holzböden</div>             <div style="color: #666; margin-bottom: 12px;">68723 Oftersheim                                                                        </div>             <div style="font-weight: bold; color: #333;">150€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:42</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_f53c204c807ffbf1959484e0c559a170.setContent(html_315a1e473bdecf005af0a742c14ada70);
             
         
 
-        marker_e729920061c95e169d27c1aea7ea03c5.bindPopup(popup_0cee23bd5fa384c6a00f776ee82fb66a)
+        marker_845a43e34b274dd0757dcb6f5d950487.bindPopup(popup_f53c204c807ffbf1959484e0c559a170)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_f45cc38a6c623d8c5683eeb3826cda94 = L.marker(
-                [52.6121896, 13.2493286],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_195af76288bafc7b09b07111eed8b5fd = L.marker(
+                [52.5155098, 13.3847539],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_b9984f3909f0354ba4f23857bcb131c3 = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_3b76c610e8489a2542e08a95e00ed20e = L.popup({"maxWidth": 2650});
 
         
             
-                var html_7223e752b849e20d6c2b3547eab76afe = $(`<div id="html_7223e752b849e20d6c2b3547eab76afe" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/xxxl-10x20m-x5-5m-titan-lagerzelt-zeltgarage-weidezelt-zelthalle-stahlrohre-76mm-pvc-650g/2070125250-87-3451 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a1/a16c01a1-46c9-42f8-80a8-f5a202a79864?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">XXXL 10x20m x5,5m TITAN Lagerzelt Zeltgarage Weidezelt Zelthalle Stahlrohre Ø 76mm PVC 650g</div>             <div style="color: #666; margin-bottom: 12px;">13503 Reinickendorf                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">10.990€</div>             <div style="color: #666; margin-bottom: 12px;"> </div>         </div>         </a>         </div>         </div>`)[0];
-                popup_b9984f3909f0354ba4f23857bcb131c3.setContent(html_7223e752b849e20d6c2b3547eab76afe);
+                var html_577a561b35e462953f3047e1cf27b195 = $(`<div id="html_577a561b35e462953f3047e1cf27b195" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/fossil-halskette-edelstahl-zirkonia-jf00025040/3484430751-157-3520 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/d5/d5a53c70-c899-45c6-8796-5f7a31f5e664?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Fossil Halskette Edelstahl Zirkonia JF00025040</div>             <div style="color: #666; margin-bottom: 12px;">10117 Mitte                                                                        </div>             <div style="font-weight: bold; color: #333;">25€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:41</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_3b76c610e8489a2542e08a95e00ed20e.setContent(html_577a561b35e462953f3047e1cf27b195);
             
         
 
-        marker_f45cc38a6c623d8c5683eeb3826cda94.bindPopup(popup_b9984f3909f0354ba4f23857bcb131c3)
+        marker_195af76288bafc7b09b07111eed8b5fd.bindPopup(popup_3b76c610e8489a2542e08a95e00ed20e)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_66cfab3aa52a9c42996198c4788df0a0 = L.marker(
-                [52.5765704, 13.274291999999999],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_3328898552584f5afa3461cb5a4c5702 = L.marker(
+                [52.532614, 13.3777036],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_4970d72a74a70a13912a2133ae165729 = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_36fc0c8f6c28be2a5aab026341f2e7ae = L.popup({"maxWidth": 2650});
 
         
             
-                var html_c0628bb6c5079f01c6b38821edd3c297 = $(`<div id="html_c0628bb6c5079f01c6b38821edd3c297" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/kuechen-und-wc-papirhalter/3159269130-91-3453 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/b9/b98cf09a-fde0-41ca-bc4c-86325076d2c8?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">küchen und wc papirhalter</div>             <div style="color: #666; margin-bottom: 12px;">13507 Reinickendorf                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">25€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:06</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_4970d72a74a70a13912a2133ae165729.setContent(html_c0628bb6c5079f01c6b38821edd3c297);
+                var html_590ea2f76e8da8c495eb2b21ccfdf511 = $(`<div id="html_590ea2f76e8da8c495eb2b21ccfdf511" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/stahl-rohr-auspuff-rohr/3484430203-84-9668 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/66/66ca9fdb-7cdd-4be8-9f62-54ff27c98dd7?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Stahl Rohr Auspuff Rohr</div>             <div style="color: #666; margin-bottom: 12px;">10115 Mitte                                                                        </div>             <div style="font-weight: bold; color: #333;">35€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:41</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_36fc0c8f6c28be2a5aab026341f2e7ae.setContent(html_590ea2f76e8da8c495eb2b21ccfdf511);
             
         
 
-        marker_66cfab3aa52a9c42996198c4788df0a0.bindPopup(popup_4970d72a74a70a13912a2133ae165729)
+        marker_3328898552584f5afa3461cb5a4c5702.bindPopup(popup_36fc0c8f6c28be2a5aab026341f2e7ae)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_d1c4dbbd2322e918f6b78d201b46c5c4 = L.marker(
-                [52.551628, 13.4080206],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_7c1b1ea2c557a70e5a1785d396087d4e = L.marker(
+                [52.4907814, 13.3281464],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_b7ed7069de5dde19c4cd0651230659ef = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_ae4c3b98d066f57f8f21942fc258275f = L.popup({"maxWidth": 2650});
 
         
             
-                var html_1fb0eeb41e6745c884ae01303a72736e = $(`<div id="html_1fb0eeb41e6745c884ae01303a72736e" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/geschirrspueler-siemens-60cm-a-edestahl-1-jahr-garantie/3001939061-176-3490 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/47/4777a5dd-b388-4a3c-becf-456be7d92cf9?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Geschirrspüler Siemens 60cm A+++ Edestahl 1 Jahr Garantie</div>             <div style="color: #666; margin-bottom: 12px;">10439 Prenzlauer Berg                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">249€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:04</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_b7ed7069de5dde19c4cd0651230659ef.setContent(html_1fb0eeb41e6745c884ae01303a72736e);
+                var html_093572f211eb76c844453bd1689e55cc = $(`<div id="html_093572f211eb76c844453bd1689e55cc" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/industrial-kommode-aus-holz-stahl/3484429337-88-3539 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/44/447a8630-90a8-4963-a785-ab04c9efd4ed?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Industrial Kommode aus Holz & Stahl</div>             <div style="color: #666; margin-bottom: 12px;">10717 Wilmersdorf                                                                        </div>             <div style="font-weight: bold; color: #333;">180€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:40</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_ae4c3b98d066f57f8f21942fc258275f.setContent(html_093572f211eb76c844453bd1689e55cc);
             
         
 
-        marker_d1c4dbbd2322e918f6b78d201b46c5c4.bindPopup(popup_b7ed7069de5dde19c4cd0651230659ef)
+        marker_7c1b1ea2c557a70e5a1785d396087d4e.bindPopup(popup_ae4c3b98d066f57f8f21942fc258275f)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_b3fb66b7e68cc3f04e9cc497b9ef85e5 = L.marker(
-                [52.561628, 13.4180206],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_583fb2a9129c0fc0ec6a011525a7ce9f = L.marker(
+                [52.5455109, 13.4072944],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_e56f80430e1e2c1e111811e95ab174db = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_8094f30a8ed91f65044bb322142832ce = L.popup({"maxWidth": 2650});
 
         
             
-                var html_9bf0950e660a350af07a28561d6f3a00 = $(`<div id="html_9bf0950e660a350af07a28561d6f3a00" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/geschirrspueler-siemens-60cm-edestahl-a-1-jahr-garantie/2975113730-176-3490 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/3e/3e3aa605-d1e0-42da-9c28-20b759aa7b85?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Geschirrspüler Siemens 60cm Edestahl A+++ 1 Jahr Garantie</div>             <div style="color: #666; margin-bottom: 12px;">10439 Prenzlauer Berg                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">249€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:04</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_e56f80430e1e2c1e111811e95ab174db.setContent(html_9bf0950e660a350af07a28561d6f3a00);
+                var html_d52ca7a3fab05a9d0e259929520af6ec = $(`<div id="html_d52ca7a3fab05a9d0e259929520af6ec" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/nachttische-aus-holz-und-schwarzem-stahl/3484428743-81-3491 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/af/afbe9a41-c43e-4168-8d14-1ef1009ebd3c?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Nachttische aus Holz und schwarzem Stahl</div>             <div style="color: #666; margin-bottom: 12px;">10437 Prenzlauer Berg                                                                        </div>             <div style="font-weight: bold; color: #333;">40€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:39</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_8094f30a8ed91f65044bb322142832ce.setContent(html_d52ca7a3fab05a9d0e259929520af6ec);
             
         
 
-        marker_b3fb66b7e68cc3f04e9cc497b9ef85e5.bindPopup(popup_e56f80430e1e2c1e111811e95ab174db)
+        marker_583fb2a9129c0fc0ec6a011525a7ce9f.bindPopup(popup_8094f30a8ed91f65044bb322142832ce)
         ;
 
         
     
     
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            tile_layer_7d5f6667d6843c386e8e07c89f83f7c5.addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-            var marker_b3a29be8b80c9bdc848521f6a5b503cc = L.marker(
-                [52.537132, 13.6104448],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
+            var marker_de90511609a5eb478b9b240941c76476 = L.marker(
+                [52.5255098, 13.3947539],
+                {}
+            ).addTo(map_d9163e833e54791adb2828fa094627dd);
         
     
-        var popup_2b7424439b190a94310b07021b40d93a = L.popup({
-  "maxWidth": 2650,
-});
+        var popup_2c3a6c264bb0a8cd4f0bcbcae1234fd7 = L.popup({"maxWidth": 2650});
 
         
             
-                var html_889f1b5bedd33ee3c3a50575b7bb243d = $(`<div id="html_889f1b5bedd33ee3c3a50575b7bb243d" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/metalltreppe-stahltreppe-fluchttreppe-und-innentreppen-holz-und-stahlwange-treppe-aus-polen/2566287953-239-3514 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/a8/a8791506-bf36-48ea-8093-ec4ba1f13d73?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Metalltreppe Stahltreppe Fluchttreppe und Innentreppen Holz und Stahlwange Treppe aus Polen</div>             <div style="color: #666; margin-bottom: 12px;">12627 Hellersdorf                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">VB</div>             <div style="color: #666; margin-bottom: 12px;"> </div>         </div>         </a>         </div>         </div>`)[0];
-                popup_2b7424439b190a94310b07021b40d93a.setContent(html_889f1b5bedd33ee3c3a50575b7bb243d);
+                var html_7ff1c3cc00b285728afe260680ede910 = $(`<div id="html_7ff1c3cc00b285728afe260680ede910" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/fossil-halskette-edelstahl-jf85722040/3484426157-157-3520 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/cd/cd170a01-c3d2-41cb-907c-bc1296e0ec9e?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">Fossil Halskette Edelstahl JF85722040</div>             <div style="color: #666; margin-bottom: 12px;">10117 Mitte                                                                        </div>             <div style="font-weight: bold; color: #333;">50€VB</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 14:36</div>         </div>         </a>         </div>         </div>`)[0];
+                popup_2c3a6c264bb0a8cd4f0bcbcae1234fd7.setContent(html_7ff1c3cc00b285728afe260680ede910);
             
         
 
-        marker_b3a29be8b80c9bdc848521f6a5b503cc.bindPopup(popup_2b7424439b190a94310b07021b40d93a)
-        ;
-
-        
-    
-    
-            tile_layer_70dc9ce7f1e8ad2b10eea1028027a485.addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
-        
-    
-            var marker_2c77c7c8714929103fe1c3e5e877d0b1 = L.marker(
-                [52.4857299, 13.4365651],
-                {
-}
-            ).addTo(map_3f59133799f1693f22c8eaf12bc51ab9);
-        
-    
-        var popup_6b65a8f77b96c6dbaeb0180af255491c = L.popup({
-  "maxWidth": 2650,
-});
-
-        
-            
-                var html_ff2d70a233b4904aab55c7f8fcc405ea = $(`<div id="html_ff2d70a233b4904aab55c7f8fcc405ea" style="width: 100.0%; height: 100.0%;">         <div style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">         <a href=https://www.kleinanzeigen.de/s-anzeige/reduziert-spuele-edelstahl-spueltisch-gastrospuele/2863969697-86-3397 target="_blank" style="text-decoration: none; color: inherit;">         <img src=https://img.kleinanzeigen.de/api/v1/prod-ads/images/fa/fa7e59c7-69db-4077-8106-14809246beb3?rule=$_35.AUTO alt="Product Image" style="width: 100%; height: 200px; object-fit: cover;">         <div style="padding: 16px;">             <div style="font-size: 1.2em; margin-bottom: 8px;">REDUZIERT Spüle Edelstahl Spültisch Gastrospüle</div>             <div style="color: #666; margin-bottom: 12px;">12045 Neukölln                                                                                                                                        </div>             <div style="font-weight: bold; color: #333;">239€</div>             <div style="color: #666; margin-bottom: 12px;">  Heute, 12:03</div>         </div>         </a>         </div>         </div>`)[0];
-                popup_6b65a8f77b96c6dbaeb0180af255491c.setContent(html_ff2d70a233b4904aab55c7f8fcc405ea);
-            
-        
-
-        marker_2c77c7c8714929103fe1c3e5e877d0b1.bindPopup(popup_6b65a8f77b96c6dbaeb0180af255491c)
+        marker_de90511609a5eb478b9b240941c76476.bindPopup(popup_2c3a6c264bb0a8cd4f0bcbcae1234fd7)
         ;
 
         

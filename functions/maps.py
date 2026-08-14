@@ -19,6 +19,31 @@ from functions.anzeigen import *
 from elements.route_anzeigen_overview import *
 
 
+def get_filter_progress_path(json_file_anzeigen):
+    return os.path.join(os.path.dirname(json_file_anzeigen), "filter_progress.json")
+
+
+def write_filter_progress(progress_path, status, total, processed, filtered):
+    with open(progress_path, "w", encoding="utf-8") as progress_file:
+        json.dump(
+            {
+                "status": status,
+                "total": total,
+                "processed": processed,
+                "filtered": filtered,
+            },
+            progress_file,
+        )
+
+
+def read_filter_progress(progress_path):
+    if not os.path.exists(progress_path):
+        return None
+
+    with open(progress_path, "r", encoding="utf-8") as progress_file:
+        return json.load(progress_file)
+
+
 def location_formatting_request(geolocator, locations_array):
     locations_str = ''
     for location_name in locations_array:
@@ -164,8 +189,14 @@ def check_if_anzeige_on_route(route_coordinates_list, anzeige_cor, radius_around
 def filter_on_route_anzeigen(location_points,search_radius, m, html_file_name, json_file_anzeigen, json_file_general):
     if os.path.exists(json_file_anzeigen):
         os.remove(json_file_anzeigen)
+
+    progress_path = get_filter_progress_path(json_file_anzeigen)
         
     articles_df = pd.read_json(json_file_general)
+    total_articles = len(articles_df)
+    processed_articles = 0
+    filtered_articles = 0
+    write_filter_progress(progress_path, "running", total_articles, processed_articles, filtered_articles)
     
     for index, article in articles_df.iterrows():
         article_location = {
@@ -177,8 +208,13 @@ def filter_on_route_anzeigen(location_points,search_radius, m, html_file_name, j
         if(check_if_anzeige_on_route(location_points, [article_location['latitude'], article_location['longitude']], search_radius)):
             add_article(json_file_anzeigen, article)
             map_div, m = add_location_anzeigen_markers_to_map(article, article_location, m ,html_file_name)
+            filtered_articles += 1
+
+        processed_articles += 1
+        write_filter_progress(progress_path, "running", total_articles, processed_articles, filtered_articles)
     
     print(json_file_anzeigen)
+    write_filter_progress(progress_path, "complete", total_articles, processed_articles, filtered_articles)
     overview_anzeigen_div = generate_anzeigen_card_div(json_file_anzeigen)  
     return overview_anzeigen_div, map_div, m 
 

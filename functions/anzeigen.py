@@ -6,6 +6,9 @@ import os
 import pandas as pd
 import uuid
 import time
+import re
+import zipfile
+from xml.etree import ElementTree as ET
 from geopy.exc import GeocoderServiceError, GeocoderTimedOut, GeocoderUnavailable
 from pprint import *
 from elements.article import *
@@ -27,6 +30,94 @@ _GEOCODE_CACHE_PATH = os.path.join(
     "search_data",
     "geocode_cache.json",
 )
+_PLZ_COORD_CACHE = {}
+_PLZ_COORD_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)),
+    "storage",
+    "plz_geocoord.xlsx",
+)
+
+
+def _load_shared_strings(zip_file):
+    shared_strings = []
+    if "xl/sharedStrings.xml" not in zip_file.namelist():
+        return shared_strings
+
+    namespace = {"a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    shared_root = ET.fromstring(zip_file.read("xl/sharedStrings.xml"))
+    for shared_item in shared_root.findall("a:si", namespace):
+        shared_strings.append("".join(text_node.text or "" for text_node in shared_item.iterfind(".//a:t", namespace)))
+    return shared_strings
+
+
+def _cell_value(cell, shared_strings):
+    namespace = {"a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    cell_type = cell.attrib.get("t")
+    value = cell.findtext("a:v", default="", namespaces=namespace)
+    if cell_type == "s":
+        return shared_strings[int(value)]
+    return value
+
+
+def _load_plz_coordinates():
+    if not os.path.exists(_PLZ_COORD_PATH):
+        return {}
+
+    namespace = {"a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+    with zipfile.ZipFile(_PLZ_COORD_PATH) as zip_file:
+        shared_strings = _load_shared_strings(zip_file)
+        sheet_xml = ET.fromstring(zip_file.read("xl/worksheets/sheet1.xml"))
+        rows = sheet_xml.findall(".//a:sheetData/a:row", namespace)
+
+        if not rows:
+            return {}
+
+        plz_coordinates = {}
+        for row in rows[1:]:
+            row_values = [_cell_value(cell, shared_strings) for cell in row.findall("a:c", namespace)]
+            if len(row_values) < 3:
+                continue
+
+            postcode = str(row_values[0]).strip().zfill(5)
+            if not postcode.isdigit():
+                continue
+
+            try:
+                latitude = float(row_values[1])
+                longitude = float(row_values[2])
+            except (TypeError, ValueError):
+                continue
+
+            plz_coordinates[postcode] = (latitude, longitude)
+
+    return plz_coordinates
+
+
+def _lookup_plz_coordinates(loc_desc):
+    if not _PLZ_COORD_CACHE:
+        _PLZ_COORD_CACHE.update(_load_plz_coordinates())
+
+    if not loc_desc:
+        return None
+
+    match = re.search(r"\b(\d{5})\b", loc_desc)
+    if not match:
+        return None
+
+    postcode = match.group(1)
+    coordinates = _PLZ_COORD_CACHE.get(postcode)
+    if coordinates is None:
+        return None
+
+    return type(
+        "PlzLocation",
+        (),
+        {
+            "latitude": coordinates[0],
+            "longitude": coordinates[1],
+            "address": loc_desc,
+        },
+    )()
 
 
 def _load_geocode_cache():
@@ -256,6 +347,11 @@ def format_location_description(geolocator, loc_desc):
 
     # Normalize whitespace and strip zero-width characters before geocoding.
     normalized_loc = " ".join(loc_desc.replace("\u200b", " ").split())
+
+    plz_location = _lookup_plz_coordinates(normalized_loc)
+    if plz_location is not None:
+        return plz_location
+
     location_arr = normalized_loc.split(" ")
 
     def _geocode_cached(query):
