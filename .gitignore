@@ -35,7 +35,6 @@ logs/
 *.log.*
 
 # Dash / app runtime output
-storage/
 *.sqlite3
 *.db
 
