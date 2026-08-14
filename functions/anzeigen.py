@@ -19,6 +19,67 @@ class ApiRequestError(Exception):
         super().__init__(detail or f"Request failed with status {status_code}")
 
 
+_GEOCODE_CACHE = {}
+_LAST_GEOCODE_CALL = 0.0
+_GEOCODE_CACHE_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)),
+    "storage",
+    "search_data",
+    "geocode_cache.json",
+)
+
+
+def _load_geocode_cache():
+    if not os.path.exists(_GEOCODE_CACHE_PATH):
+        return
+
+    try:
+        with open(_GEOCODE_CACHE_PATH, "r", encoding="utf-8") as cache_file:
+            cached_locations = json.load(cache_file)
+    except Exception:
+        return
+
+    for key, value in cached_locations.items():
+        _GEOCODE_CACHE[key] = value
+
+
+def _save_geocode_cache():
+    cache_dir = os.path.dirname(_GEOCODE_CACHE_PATH)
+    os.makedirs(cache_dir, exist_ok=True)
+
+    serializable_cache = {}
+    for key, value in _GEOCODE_CACHE.items():
+        if value is None:
+            serializable_cache[key] = None
+        else:
+            serializable_cache[key] = {
+                "latitude": value.latitude,
+                "longitude": value.longitude,
+                "address": getattr(value, "address", None),
+            }
+
+    with open(_GEOCODE_CACHE_PATH, "w", encoding="utf-8") as cache_file:
+        json.dump(serializable_cache, cache_file, ensure_ascii=False, indent=2)
+
+
+def _restore_cached_location(cached_value):
+    if cached_value is None:
+        return None
+
+    return type(
+        "CachedLocation",
+        (),
+        {
+            "latitude": cached_value.get("latitude"),
+            "longitude": cached_value.get("longitude"),
+            "address": cached_value.get("address"),
+        },
+    )()
+
+
+_load_geocode_cache()
+
+
 def format_api_error_message(error):
     detail = error.detail or "No additional details available."
     return f"Request failed for {error.url} with status {error.status_code}: {detail}"
@@ -197,10 +258,31 @@ def format_location_description(geolocator, loc_desc):
     normalized_loc = " ".join(loc_desc.replace("\u200b", " ").split())
     location_arr = normalized_loc.split(" ")
 
+    def _geocode_cached(query):
+        global _LAST_GEOCODE_CALL
+
+        cache_key = query.lower().strip()
+        if cache_key in _GEOCODE_CACHE:
+            cached_value = _GEOCODE_CACHE[cache_key]
+            if isinstance(cached_value, dict) or cached_value is None:
+                return _restore_cached_location(cached_value)
+            return cached_value
+
+        now = time.monotonic()
+        elapsed = now - _LAST_GEOCODE_CALL
+        if elapsed < 1:
+            time.sleep(1 - elapsed)
+
+        result = geolocator.geocode(query)
+        _LAST_GEOCODE_CALL = time.monotonic()
+        _GEOCODE_CACHE[cache_key] = result
+        _save_geocode_cache()
+        return result
+
     def _geocode_with_retry(query):
         for attempt in range(3):
             try:
-                return geolocator.geocode(query)
+                return _geocode_cached(query)
             except (GeocoderTimedOut, GeocoderUnavailable, GeocoderServiceError):
                 if attempt == 2:
                     raise
