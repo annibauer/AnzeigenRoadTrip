@@ -29,7 +29,7 @@ styles_css = read_styles()
 
 dash.register_page(__name__, path='/')
 
-geolocator = Nominatim(user_agent="Anzeigen_App")
+geolocator = Nominatim(user_agent="Anzeigen_App", timeout=10, scheme="https")
 settings = read_settings()
 json_route, route_anzeigen_json, anzeigen_general_json, html_map_route, html_map_route_anzeigen = compound_paths(settings)
 

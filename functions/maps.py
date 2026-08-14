@@ -79,7 +79,7 @@ def generate_route_coordinates(geolocator, route_array, json_file_path_route):
     return location_points
     
 def generate_map_route(location_points, html_file_name):
-    m = folium.Map(location=[51, 11], tiles="OpenStreetMap", zoom_start=6)
+    m = folium.Map(x=[51, 11], tiles="OpenStreetMap", zoom_start=6)
     
     if(type(location_points)==list):
         item_past = location_points[0]

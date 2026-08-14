@@ -6,6 +6,7 @@ import os
 import pandas as pd
 import uuid
 import time
+from geopy.exc import GeocoderServiceError, GeocoderTimedOut, GeocoderUnavailable
 from pprint import *
 from elements.article import *
 
@@ -192,12 +193,25 @@ def format_location_description(geolocator, loc_desc):
     if not loc_desc:
         return None
 
-    location_arr = loc_desc.split(" ")
+    # Normalize whitespace and strip zero-width characters before geocoding.
+    normalized_loc = " ".join(loc_desc.replace("\u200b", " ").split())
+    location_arr = normalized_loc.split(" ")
+
+    def _geocode_with_retry(query):
+        for attempt in range(3):
+            try:
+                return geolocator.geocode(query)
+            except (GeocoderTimedOut, GeocoderUnavailable, GeocoderServiceError):
+                if attempt == 2:
+                    raise
+                time.sleep(1 + attempt)
+
     try:
-        location_g = geolocator.geocode(loc_desc)
+        location_g = _geocode_with_retry(normalized_loc)
         i = len(location_arr)
         while location_g is None and i != 0:
-            location_g = geolocator.geocode(location_arr[0:i-2])
+            fallback_query = " ".join(location_arr[0:max(i - 1, 1)])
+            location_g = _geocode_with_retry(fallback_query)
             i = i - 1
     except Exception as exc:
         print("*******   FORMAT LOCATION ERROR " + str(loc_desc))
