@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_13ca5d41b9f4545a1e1550cf2085d557 {
+                #map_d9df8bea2d3c4b74af1989c7b9066a2d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,18 +39,18 @@
 <body>
     
     
-            <div class="folium-map" id="map_13ca5d41b9f4545a1e1550cf2085d557" ></div>
+            <div class="folium-map" id="map_d9df8bea2d3c4b74af1989c7b9066a2d" ></div>
         
 </body>
 <script>
     
     
-            var map_13ca5d41b9f4545a1e1550cf2085d557 = L.map(
-                "map_13ca5d41b9f4545a1e1550cf2085d557",
+            var map_d9df8bea2d3c4b74af1989c7b9066a2d = L.map(
+                "map_d9df8bea2d3c4b74af1989c7b9066a2d",
                 {
-                    center: [52.0, 11.0],
+                    center: [51.1657, 10.4515],
                     crs: L.CRS.EPSG3857,
-                    zoom: 5,
+                    zoom: 6,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -60,13 +60,19 @@
 
         
     
-            var tile_layer_79cd8a8f690d32373bab1482524a93f2 = L.tileLayer(
+            var tile_layer_efca2ee7096202773e24c86b8bc89248 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_79cd8a8f690d32373bab1482524a93f2.addTo(map_13ca5d41b9f4545a1e1550cf2085d557);
+            tile_layer_efca2ee7096202773e24c86b8bc89248.addTo(map_d9df8bea2d3c4b74af1989c7b9066a2d);
+        
+    
+            map_d9df8bea2d3c4b74af1989c7b9066a2d.fitBounds(
+                [[47.2, 5.8], [55.1, 15.1]],
+                {"padding": [20, 20]}
+            );
         
 </script>
 </html>

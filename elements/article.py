@@ -9,33 +9,78 @@ styles_css = read_styles()
 
 def article_card(article):
     card = dbc.Row([
-                dbc.Card(id=str(article["location_description"]), children=[
-                    dbc.CardHeader(article["time_posted"]),
-                    dbc.CardBody([
-                        html.A([
-                            dbc.Row([
-                                dbc.Col([
-                                    dbc.Row([html.Img(src=article["img"], style={"height":"100%", "width":"auto"})])
-                                ], width=4),
-                                dbc.Col([
-                                    html.Div([
-                                        dbc.Row(
-                                            [html.H4(article["name"])]
-                                        ),
-                                        dbc.Row([html.P(article["description"])]),
-                                        dbc.Row([html.P(article["price"])]),
-                                        
-                                    ], style={"position": "absolute", "top": "50%", "-ms-transform": "translateY(-50%)","transform": "translateY(-50%)"})
-
-                                ], width=6, style={"position":"relative"}),
-                            ])
-
-                        ], href=article["url_ref"], target="_blank", style={"text-decoration": "none"})
-
-                    ]),
-                    dbc.CardFooter(article["location_description"])
-                ], style=styles_css["search_card"])
-        ])
+        dbc.Card(
+            id=str(article["location_description"]),
+            children=[
+                dbc.CardHeader(article["time_posted"]),
+                dbc.CardBody([
+                    html.A([
+                        dbc.Row([
+                            dbc.Col([
+                                html.Img(
+                                    src=article["img"],
+                                    style={
+                                        "width": "100%",
+                                        "height": "170px",
+                                        "objectFit": "cover",
+                                        "borderRadius": "6px",
+                                    },
+                                )
+                            ], xs=12, md=4),
+                            dbc.Col([
+                                html.Div([
+                                    html.H5(
+                                        article["name"],
+                                        style={
+                                            "marginBottom": "8px",
+                                            "lineHeight": "1.25",
+                                            "overflow": "hidden",
+                                            "display": "-webkit-box",
+                                            "WebkitLineClamp": "2",
+                                            "WebkitBoxOrient": "vertical",
+                                            "wordBreak": "break-word",
+                                        },
+                                    ),
+                                    html.P(
+                                        article["description"],
+                                        style={
+                                            "marginBottom": "10px",
+                                            "lineHeight": "1.35",
+                                            "overflow": "hidden",
+                                            "display": "-webkit-box",
+                                            "WebkitLineClamp": "3",
+                                            "WebkitBoxOrient": "vertical",
+                                            "wordBreak": "break-word",
+                                        },
+                                    ),
+                                    html.P(
+                                        article["price"],
+                                        style={"fontWeight": "700", "marginBottom": "0"},
+                                    ),
+                                ], style={"padding": "4px 0", "height": "100%"})
+                            ], xs=12, md=8),
+                        ], className="g-3 align-items-start")
+                    ], href=article["url_ref"], target="_blank", style={"textDecoration": "none", "color": "inherit"})
+                ], style={"padding": "14px"}),
+                dbc.CardFooter(
+                    article["location_description"],
+                    style={
+                        "overflow": "hidden",
+                        "textOverflow": "ellipsis",
+                        "whiteSpace": "nowrap",
+                    },
+                ),
+            ],
+            style={
+                **styles_css["search_card"],
+                "width": "100%",
+                "height": "100%",
+                "paddingLeft": "0",
+                "paddingRight": "0",
+                "overflow": "hidden",
+            },
+        )
+    ])
 
     return card
 

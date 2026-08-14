@@ -2,6 +2,7 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc, dash_table
 import pandas as pd
 import geocoder
+import os
 from functions.misc import *
 
 
@@ -61,8 +62,18 @@ def route_div():
 
 
 def route_map():
+    settings = read_settings()
+    empty_map_path = settings["map_folder"] + settings["empty_map"]
+
+    if os.path.exists(empty_map_path):
+        default_map_children = [
+            html.Iframe(id='map', srcDoc=open(empty_map_path, 'r').read(), width="100%", height="800px")
+        ]
+    else:
+        default_map_children = []
+
     div = dbc.Card(id="map_card",children=[
-        dbc.Row(id='map_route_div', children=[])
+        dbc.Row(id='map_route_div', children=default_map_children)
     ], style=styles_css["map_wide"])
     return div
 

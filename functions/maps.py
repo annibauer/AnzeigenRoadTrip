@@ -102,6 +102,25 @@ def generate_route_coordinates(geolocator, route_array, json_file_path_route):
     route_df.to_json(json_file_path_route)
 
     return location_points
+
+
+def _fit_map_to_route(m, location_points):
+    if not location_points:
+        return
+
+    if isinstance(location_points, pd.DataFrame):
+        latitudes = location_points["latitude"].tolist()
+        longitudes = location_points["longitude"].tolist()
+    else:
+        latitudes = [point[0] for point in location_points]
+        longitudes = [point[1] for point in location_points]
+
+    if not latitudes or not longitudes:
+        return
+
+    south_west = [min(latitudes), min(longitudes)]
+    north_east = [max(latitudes), max(longitudes)]
+    m.fit_bounds([south_west, north_east], padding=(20, 20))
     
 def generate_map_route(location_points, html_file_name):
     m = folium.Map(x=[51, 11], tiles="OpenStreetMap", zoom_start=6)
@@ -121,6 +140,8 @@ def generate_map_route(location_points, html_file_name):
                 line = folium.PolyLine([item_past, item], weight=5, opacity=1)
                 line.add_to(m)
                 item_past = item
+
+    _fit_map_to_route(m, location_points)
         
     m.save(html_file_name)
     map_div =  html.Iframe(id='map', srcDoc=open(html_file_name, 'r').read(), width="100%", height="800px")
@@ -256,6 +277,8 @@ def format_search_phrases_list(search_phrases_list):
             
             
 def create_empty_map(settings):
-    m = folium.Map(location=[52, 11], tiles="OpenStreetMap", zoom_start=5)
+    m = folium.Map(location=[51.1657, 10.4515], tiles="OpenStreetMap", zoom_start=6)
+    # Fit to Germany bounds so the default map consistently shows the full country.
+    m.fit_bounds([[47.2, 5.8], [55.1, 15.1]], padding=(20, 20))
     m.save(settings["map_folder"] + settings["empty_map"])
     return m

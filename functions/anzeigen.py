@@ -268,18 +268,20 @@ def extract_article_all_page(geolocator, json_file_path, headers, URL_ROOT, URL,
         if(next_page != None):
             next_page_href = next_page['href']  
             next_page_url =  "{root}{search_phrase}".format(root= URL_ROOT,search_phrase= next_page_href)
-    
-
-        
-    if(page_limit != None and next_page_href):
-        page_str = next_page_href.split(":")[1]
-        page = int(page_str.split("/")[0])
-        if(page> int(page_limit)):
-            print("PAGE LIMIT")
-            print(next_page_href)
-            print(page)
-            print(page_limit)
+        else:
             next_page_url = None
+            next_page_href = None
+
+    if(next_page_href == None):
+        next_page_url = None
+        pass
+    else:
+        if(page_limit != None and next_page_href):
+            page_str = next_page_href.split(":")[1]
+            page = int(page_str.split("/")[0])
+            if(page> int(page_limit)):
+                print("PAGE LIMIT")
+                next_page_url = None
 
 
     # Looped durch alle Search-Results durch.
@@ -409,9 +411,14 @@ def generate_anzeigen_card_div(json_anzeigen):
     
     for index, article in articles_filtered_df.iterrows():
         list_of_cards.append(article_card(article))
+
+    card_columns = [
+        dbc.Col(card, xs=12, md=6, className="mb-3 d-flex")
+        for card in list_of_cards
+    ]
     
     div_overview = html.Div([
-        dbc.Col(children=list_of_cards)
+        dbc.Row(children=card_columns, className="g-3")
     ], style=styles_css["overview_cards"])
     return div_overview, count_articles_on_route
 

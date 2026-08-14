@@ -32,6 +32,7 @@ dash.register_page(__name__, path='/')
 geolocator = Nominatim(user_agent="Anzeigen_App", timeout=10, scheme="https")
 settings = read_settings()
 json_route, route_anzeigen_json, anzeigen_general_json, html_map_route, html_map_route_anzeigen = compound_paths(settings)
+empty_map_path = settings["map_folder"] + settings["empty_map"]
 
 global m
 global ROUTE_LOADED
@@ -88,6 +89,12 @@ def _build_status_message(message):
     ])
 
 
+def _load_empty_map_div():
+    if os.path.exists(empty_map_path):
+        return html.Iframe(id='map', srcDoc=open(empty_map_path, 'r').read(), width="100%", height="800px")
+    return []
+
+
 def _toggle_sidebar_state(is_open):
     if is_open:
         return False, {"display": "none"}, 12
@@ -128,6 +135,7 @@ def _handle_start_search(map_div, m, search_phrases_div, page_limit, price_min, 
         table_anzeigen_div = []
         search_phrases = []
         count_articles_on_route = 0
+        map_div = _load_empty_map_div()
 
     anzeigen_results_info = f"{count_articles_on_route} Anzeigen found on route"
     loading_output_search_route = html.Div([
@@ -264,6 +272,8 @@ def route_calculation(n_calculate_route, n_add_waypoints, n_rm_waypoints, n_star
         logging.info("Load previous route pressed.")
         if os.path.exists(json_route):
             map_div, m = load_route(json_route, html_map_route)
+        else:
+            map_div = _load_empty_map_div()
         ROUTE_LOADED = True
         SEARCH_ALONG_ROUTE_DISABLED = not ROUTE_LOADED
         n_load_route = 0
@@ -320,18 +330,23 @@ def toggle_collapse(n, is_open, width_collapsable, width_content):
     Output("filter-progress-interval", "disabled"),
     Output("filter-progress-interval", "n_intervals"),
     Input("start_search_btn", "n_clicks"),
+    Input("calculate_route_btn", "n_clicks"),
+    Input("load_route_btn", "n_clicks"),
     Input("filter-progress-interval", "n_intervals"),
     prevent_initial_call=True,
 )
-def update_filter_progress_status(n_start_search, n_intervals):
+def update_filter_progress_status(n_start_search, n_calculate_route, n_load_route, n_intervals):
     trigger_id = ctx.triggered_id
 
     if trigger_id == "start_search_btn":
         return "Filtering articles: 0 matches from 0 checked", False, 0
 
+    if trigger_id in {"calculate_route_btn", "load_route_btn"}:
+        return "", True, 0
+
     progress = read_filter_progress(get_filter_progress_path(route_anzeigen_json))
     if not progress:
-        return "Starting article filter...", False, no_update
+        return "", True, 0
 
     status = progress.get("status")
     filtered = progress.get("filtered", 0)
